@@ -3,7 +3,16 @@ const flowbite = require("flowbite-react/tailwind");
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", flowbite.content()],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        "custom-light": `8px 8px 25px
+                         rgba(0, 0, 0, 0.2)`,
+        "custom-dark": `10px 10px 15px
+                        rgba(0, 0, 0, 0.3)`,
+        "custom-color": `5px 5px 20px
+                         rgba(34, 60, 80, 0.7)`,
+      },
+    },
   },
   plugins: [require("daisyui"), flowbite.plugin()],
 };

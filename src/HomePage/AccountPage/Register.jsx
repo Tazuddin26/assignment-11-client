@@ -11,8 +11,9 @@ const Register = () => {
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
+    const photo = form.photo.value;
     const password = form.password.value;
-    console.log("register Clicked", name, email, password);
+    console.log("register Clicked", name, email, password,photo);
 
     createRegisterUser(email, password)
       .then((result) => {
@@ -31,20 +32,19 @@ const Register = () => {
 
   return (
     <div
-      className="grid max-w-screen-lg grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 
+      className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 
     md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800 lg:border border-lime-500 lg:mt-10"
     >
       <div className="flex flex-col justify-between">
-        <div className="space-y-2  ">
-          <h2 className="text-4xl font-bold leading-tight text-center  ">
-            Please Register!
-          </h2>
-        </div>
         <div className="">
           <Lottie animationData={registerLottie} className=""></Lottie>
         </div>
       </div>
+      
       <form onSubmit={handleRegister} className="space-y-6">
+      <h2 className="text-3xl font-bold leading-tight text-center  ">
+            Please Create Your Personal Account with NewDay!
+          </h2>
         <div>
           <label htmlFor="name" className="text-sm">
             Full name
@@ -70,7 +70,19 @@ const Register = () => {
           />
         </div>
         <div>
-          <label htmlFor="message" className="text-sm ">
+          <label htmlFor="photo" className="text-sm">
+            Photo URL
+          </label>
+          <input
+            type="url"
+            name="photo"
+            placeholder="Please Enter Photo url"
+            className="w-full p-3 rounded dark:bg-gray-100"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password" className="text-sm ">
             Password
           </label>
           <input
@@ -81,6 +93,7 @@ const Register = () => {
             required
           />
         </div>
+        {/* <p>Already have an account ? Login.</p> */}
         <button
           type="submit"
           className="btn btn-outline w-full p-3 text-sm font-bold tracking-wide uppercase rounded"

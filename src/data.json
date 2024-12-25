@@ -1,0 +1,112 @@
+[
+  {
+    "thumbnail": "https://i.ibb.co.com/NTLCX1S/freehealth.jpg",
+    "postTitle": "Free Health Checkup Camp",
+    "description": "We need volunteers for a free health checkup camp in rural areas.",
+    "category": "healthcare",
+    "location": "Chattogram, Bangladesh",
+    "noOfVolunteersNeeded": 15,
+    "deadline": "2024-12-28",
+    "organizerName": "Jane Smith",
+    "organizerEmail": "jane.smith@example.com"
+  },
+  {
+    "thumbnail": "https://i.ibb.co.com/5cPw24Z/beach-cleanup-environment.webp",
+    "postTitle": "Beach Cleanup Campaign",
+    "description": "Help us clean the Cox's Bazar beach and save marine life.",
+    "category": "environment",
+    "location": "Cox's Bazar, Bangladesh",
+    "noOfVolunteersNeeded": 25,
+    "deadline": "2024-12-31",
+    "organizerName": "Mike Taylor",
+    "organizerEmail": "mike.taylor@example.com"
+  },
+  {
+    "thumbnail": "https://i.ibb.co.com/zGpzdfR/animal2.jpg",
+    "postTitle": "Animal Shelter Assistance",
+    "description": "Assist in taking care of rescued animals in our shelter.",
+    "category": "animal welfare",
+    "location": "Rajshahi, Bangladesh",
+    "noOfVolunteersNeeded": 10,
+    "deadline": "2024-12-29",
+    "organizerName": "Emily Johnson",
+    "organizerEmail": "emily.johnson@example.com"
+  },
+  {
+    "thumbnail": "https://i.ibb.co.com/HGw66RB/education2.jpg",
+    "postTitle": "Educational Workshop",
+    "description": "Conduct workshops for underprivileged children.",
+    "category": "education",
+    "location": "Sylhet, Bangladesh",
+    "noOfVolunteersNeeded": 8,
+    "deadline": "2024-12-27",
+    "organizerName": "Robert Wilson",
+    "organizerEmail": "robert.wilson@example.com"
+  },
+  {
+    "thumbnail": "https://i.ibb.co.com/dWkK0H3/food-gaza.jpg",
+    "postTitle": "Food Distribution Drive",
+    "description": "Distribute food packages to needy families in remote areas.",
+    "category": "social service",
+    "location": "Barishal, Bangladesh",
+    "noOfVolunteersNeeded": 30,
+    "deadline": "2024-12-26",
+    "organizerName": "Anna Brown",
+    "organizerEmail": "anna.brown@example.com"
+  },
+  {
+    "thumbnail": "https://i.ibb.co.com/D704Cmf/blood-health.jpg",
+    "postTitle": "Blood Donation Camp",
+    "description": "Organize and assist in a blood donation camp for emergency cases.",
+    "category": "healthcare",
+    "location": "Khulna, Bangladesh",
+    "noOfVolunteersNeeded": 12,
+    "deadline": "2024-12-25",
+    "organizerName": "David Clark",
+    "organizerEmail": "david.clark@example.com"
+  },
+  {
+    "thumbnail": "https://i.ibb.co.com/2ZFxc8V/library-education.jpg",
+    "postTitle": "Library Book Arrangement",
+    "description": "Help arrange and catalog books in the public library.",
+    "category": "education",
+    "location": "Comilla, Bangladesh",
+    "noOfVolunteersNeeded": 5,
+    "deadline": "2024-12-24",
+    "organizerName": "Sophia Martinez",
+    "organizerEmail": "sophia.martinez@example.com"
+  },
+  {
+    "thumbnail": "https://i.ibb.co.com/4ZqmKJr/social-old-age.jpg",
+    "postTitle": "Old Age Home Support",
+    "description": "Assist in organizing activities and providing care at old age homes.",
+    "category": "social service",
+    "location": "Gazipur, Bangladesh",
+    "noOfVolunteersNeeded": 18,
+    "deadline": "2024-12-23",
+    "organizerName": "Chris Evans",
+    "organizerEmail": "chris.evans@example.com"
+  },
+  {
+    "thumbnail": "https://i.ibb.co.com/phkCHRx/education1.jpg",
+    "postTitle": "Orphanage Support",
+    "description": "Help organize educational activities for orphans.",
+    "category": "education",
+    "location": "Mymensingh, Bangladesh",
+    "noOfVolunteersNeeded": 10,
+    "deadline": "2024-12-22",
+    "organizerName": "Lisa Davis",
+    "organizerEmail": "lisa.davis@example.com"
+  },
+  {
+    "thumbnail": "https://i.ibb.co.com/vhxYNpZ/social-disaster.webp",
+    "postTitle": "Disaster Relief Drive",
+    "description": "Distribute relief materials to flood-affected areas.",
+    "category": "social service",
+    "location": "Patuakhali, Bangladesh",
+    "noOfVolunteersNeeded": 40,
+    "deadline": "2024-12-21",
+    "organizerName": "Tom Hardy",
+    "organizerEmail": "tom.hardy@example.com"
+  }
+]

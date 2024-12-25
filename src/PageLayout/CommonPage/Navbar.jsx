@@ -1,9 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const menuLink = <></>;
+  const { user, createSignOutUser } = useContext(AuthContext);
 
+  const handleSignOut = () => {
+    createSignOutUser()
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your Registration is Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => console.log("failed to sign Out", error.message));
+  };
+
+  const menuLink = (
+    <>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/volunteers-need">Need Volunteer</NavLink>
+      </li>
+      <li>
+        <details>
+          <summary>My Profile</summary>
+          <ul className="p-2 lg:w-52 w-40 lg:border border-lime-500">
+            <li>
+              <NavLink to="/addVolunteer">Add Volunteer</NavLink>
+            </li>
+            <li>
+              <NavLink to="/managePost">Manage My Posts </NavLink>
+            </li>
+          </ul>
+        </details>
+      </li>
+    </>
+  );
   return (
     <div className="navbar bg-base-100 border-b border-lime-500 p-4">
       <div className="navbar-start">
@@ -28,66 +68,39 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow border border-lime-500"
           >
-            <li>
-              <a>Home</a>
-            </li>
-
-            <li>
-              <a>All Volunteer</a>
-            </li>
-            <li>
-              <details>
-                <summary>My Profile</summary>
-                <ul className="p-2 w-40">
-                  <li>
-                    <a>Add Volunteer</a>
-                  </li>
-                  <li>
-                    <a>Manage My Posts </a>
-                  </li>
-                </ul>
-              </details>
-            </li>
+            {menuLink}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <img
+          src="https://i.ibb.co.com/rvQQPst/logo.png"
+          alt="NewDay"
+          className="lg:w-36 w-28 border p-2 m-2 rounded-xl bg-lime-400"
+        />
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-base">
-          <li>
-            <a>Home</a>
-          </li>
-
-          <li>
-            <a>All volunteer</a>
-          </li>
-          <li>
-            <details>
-              <summary>My Profile</summary>
-              <ul className="p-2 w-52 border border-lime-500">
-                <li>
-                  <a>Add Volunteer</a>
-                </li>
-                <li>
-                  <a>Manage My Posts </a>
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ul>
+      <div className="navbar-center hidden lg:flex ">
+        <ul className="menu menu-horizontal px-1 text-xl gap-28">{menuLink}</ul>
       </div>
       <div className="navbar-end">
-        <div className="btn btn-outline">
-          <Link to='/signIn'>
-            <button className="hover:underline">Sign In </button>
-          </Link>
-          /
-          <Link to="/register">
-            <button to className="hover:underline">
-              Register
-            </button>
-          </Link>
-        </div>
+        {user ? (
+          <>
+            <Link to="/signIn">
+              <button
+                onClick={handleSignOut}
+                className=" btn btn-info hover:scale-105 transition duration-300 "
+              >
+                Sign Out
+              </button>
+            </Link>
+          </>
+        ) : (
+          <>
+            <div className="btn btn-sm btn-outline duration-300 hover:scale-110 transition ">
+              <Link to="/signIn">
+                <button className="">Sign In </button>
+              </Link>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
