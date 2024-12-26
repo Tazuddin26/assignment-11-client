@@ -28,9 +28,9 @@ const VolunteerNeed = () => {
           <VolunteerNeedCard key={volunteer._id} volunteer={volunteer} />
         ))}
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center mb-4">
         <Link to="/volunteers-need">
-          <button className="btn btn-outline bg-sky-400 border border-pink-500  px-7">SEE ALL</button>
+          <button className="btn btn-info btn-outline duration-300 hover:scale-110 transition px-7">SEE ALL</button>
         </Link>
       </div>
     </div>

@@ -33,7 +33,7 @@ const VolunteerPostDetails = () => {
           <p className="text-xl text-gray-500 mb-6">{description}</p>
           <p className="text-xl font-bold ">
             Volunteer:{" "}
-            <span className="border-2 btn btn-outline rounded-full border-purple-500 bg-lime-500">
+            <span className="border-2 btn btn-info btn-outline rounded-full border-purple-500 ">
               {noOfVolunteersNeeded}
             </span>
           </p>
@@ -51,7 +51,7 @@ const VolunteerPostDetails = () => {
           </div>
           <div className="flex lg:justify-end justify-center mt-6">
             <Link to={`/beVolunteer/${_id}`}>
-              <button className="px-8 py-3 btn btn-outline hover:shadow-lg hover:shadow-lime-500/50 bg-lime-600 uppercase">
+              <button className="px-8 py-3  btn btn-info btn-outline duration-300 hover:scale-105 transition uppercase">
                 Be a Volunteer
               </button>
             </Link>

@@ -8,7 +8,6 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { Link, useLoaderData } from "react-router-dom";
 
 const NeedVolunteer = () => {
-  // const loadedData = useLoaderData();
   const [volunteers, setVolunteers] = useState([]);
   const [search, setSearch] = useState("");
   const [searchValue, setSearchValue] = useState("");
@@ -57,7 +56,7 @@ const NeedVolunteer = () => {
             value={view}
             exclusive
             onChange={handleChange}
-            className="border border-lime-500"
+            className="border bg-gray-500"
           >
             <ToggleButton
               onClick={() => handleTableView(true)}
@@ -94,7 +93,7 @@ const NeedVolunteer = () => {
           />
           <button
             onClick={() => handleSearchValue()}
-            className="btn bg-lime-500 join-item rounded-r-xl"
+            className="btn btn-info join-item rounded-r-xl"
           >
             Search
           </button>
@@ -111,22 +110,26 @@ const NeedVolunteer = () => {
             />{" "}
             Everyone to our beautiful family at a glance
           </h1>
+          <p className="text-center">
+            I had read articles that advised fresh graduates to volunteer in
+            order to know more about their society and the world.
+          </p>
         </div>
       </article>
       <div>
         <div className={isGridView ? "block" : "hidden"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20 px-3 lg:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 px-3 lg:px-0">
             {volunteers.map((volunteer) => (
               <VolunteerNeedCard key={volunteer._id} volunteer={volunteer} />
             ))}
           </div>
         </div>
         <div className={!isTableView ? "hidden" : "block"}>
-          <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
+          <div className="container p-2 mx-auto sm:p-4 text-gray-800">
             <div className="overflow-x-auto rounded-xl bg-green-50 hidden md:block">
               <table className="min-w-full text-xs rounded-xl">
-                <thead className="dark:bg-gray-300 border-b border-t ">
-                  <tr className="py-6 text-base text-center  bg-lime-400 ">
+                <thead className=" border-b border-t bg-sky-100 ">
+                  <tr className="py-6 text-base text-center ">
                     <th className="p-3"></th>
                     <th className="p-3">Post Title</th>
                     <th className="p-3">Posted By</th>
@@ -174,9 +177,7 @@ const NeedVolunteer = () => {
                           to={`/postDetails/${volunteer._id}`}
                           className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
                         >
-                          <button className="btn btn-outline bg-lime-500">
-                            View Details
-                          </button>
+                          <button className="btn btn-info">View Details</button>
                         </Link>
                       </td>
                     </tr>

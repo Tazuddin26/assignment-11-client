@@ -47,14 +47,14 @@ const ManagePost = () => {
   }, [user.email]);
 
   return (
-    <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
+    <div className="container p-2 mx-auto sm:p-4 ">
       <h2 className="mb-4 text-3xl text-center font-semibold leading-tight">
         Number Of Requests : <span className="">{volunteers.length}</span>
       </h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full text-sm ">
-          <thead className="dark:bg-gray-300 ml-10">
-            <tr className="text-center border-t  border-b bg-lime-200">
+      <div className="overflow-x-auto bg-green-50 shadow-xl rounded-xl">
+        <table className="min-w-full text-sm text-black ">
+          <thead className=" ml-10">
+            <tr className="text-center border-t  border-b bg-sky-200">
               <th className="p-3">S/N</th>
               <th className="p-3">Post Title</th>
               <th className="p-3">Email</th>
@@ -67,7 +67,7 @@ const ManagePost = () => {
             {volunteers.map((volunteer, index) => (
               <tr
                 key={index}
-                className="border-b text-center border-opacity-20 dark:border-gray-300 dark:bg-gray-50"
+                className="border-b text-center border-opacity-20 "
               >
                 <td className="p-3">
                   <p>{index + 1}</p>
@@ -90,7 +90,7 @@ const ManagePost = () => {
                   <span className="px-3 py-1 font-semibold ">
                     <button
                       onClick={() => handleCancelRequest(volunteer._id)}
-                      className="border-2 border-lime-500 hover:border-lime-400 bg-rose-500 text-center rounded-full duration-300 hover:scale-110 t"
+                      className="border-2 hover:border-sky-500  bg-rose-500 text-center rounded-full duration-300 hover:scale-110 t"
                     >
                       <RxCrossCircled size={20} />
                     </button>

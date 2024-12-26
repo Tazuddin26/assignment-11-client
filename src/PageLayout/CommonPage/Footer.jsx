@@ -40,7 +40,7 @@ const Footer = () => {
             <h3 className="tracking-wide uppercase dark:text-gray-900 text-xl font-bold">
               Gallery
             </h3>
-            <div className="container  relative max-w-xs overflow-hidden bg-cover bg-no-repeat grid grid-cols-2 gap-4 p-4  md:grid-cols-4">
+            <div className="container relative lg:max-w-xs overflow-hidden bg-cover bg-no-repeat grid grid-cols-2 gap-4 p-4  md:grid-cols-4">
               <img
                 src="https://i.ibb.co.com/phkCHRx/education1.jpg"
                 alt=""

@@ -2,8 +2,12 @@ const flowbite = require("flowbite-react/tailwind");
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", flowbite.content()],
+  darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        fs: "'Roboto', 'serif'",
+      },
       boxShadow: {
         "custom-light": `8px 8px 25px
                          rgba(0, 0, 0, 0.2)`,
@@ -15,4 +19,7 @@ export default {
     },
   },
   plugins: [require("daisyui"), flowbite.plugin()],
+  daisyui: {
+    themes: ["light", "dark"],
+  },
 };

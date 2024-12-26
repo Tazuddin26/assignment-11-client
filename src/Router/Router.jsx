@@ -12,6 +12,8 @@ import ManageMyPost from "../PageLayout/ManagePost/ManageMyPost";
 import ErrorPage from "../PageLayout/ErrorPage";
 import AddVolunteerPost from "../PageLayout/AddVolunteerPost/AddVolunteerPost";
 import VolunteerDetailsNeedPost from "../PageLayout/ManagePost/PostedVolunteers";
+import UpdateVolunteer from "../PageLayout/UpdateVolunteer/UpdateVolunteer";
+import PostedVolunteers from "../PageLayout/ManagePost/PostedVolunteers";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
         element: <SignIn />,
       },
       {
+        path: "/volunteers-need",
+        element: <NeedVolunteer />,
+      },
+      {
         path: "/beVolunteer/:id",
         element: (
           <PrivateRoute>
@@ -41,15 +47,22 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:4000/volunteerPost/${params.id}`),
       },
-      {
-        path: "/volunteers-need",
-        element: <NeedVolunteer />,
-      },
+
       {
         path: "/postDetails/:id",
         element: (
           <PrivateRoute>
             <VolunteerPostDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/volunteers/${params.id}`),
+      },
+      {
+        path: "/updateVolunteer/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateVolunteer />
           </PrivateRoute>
         ),
         loader: ({ params }) =>
@@ -64,14 +77,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/addVolunteerPost",
-        element: (
-          <PrivateRoute>
-            <AddVolunteerPost />
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "/manageMyPost",
         element: (
           <PrivateRoute>
@@ -79,6 +84,15 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/addVolunteerPost",
+        element: (
+          <PrivateRoute>
+            <AddVolunteerPost />
+          </PrivateRoute>
+        ),
+      },
+
       {
         path: "/volunteers",
         element: (

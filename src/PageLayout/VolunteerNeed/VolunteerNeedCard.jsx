@@ -28,7 +28,7 @@ const VolunteerNeedCard = ({ volunteer }) => {
         <Link to={`/postDetails/${_id}`}>
         <button
             type="button"
-            className="px-8 py-3 btn btn-outline hover:shadow-lg hover:shadow-lime-500/50 bg-lime-600 font-semibold rounded-xl dark:bg-gray-800 dark:text-gray-100"
+            className="px-8 py-3 btn btn-info btn-outline duration-300 hover:scale-110 transition"
           >
             View Details
           </button>

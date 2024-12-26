@@ -6,6 +6,7 @@ import Footer from './CommonPage/Footer';
 const MainPageLayout = () => {
     return (
         <div>
+            
             <Navbar/>
             <Outlet/>
             <Footer/>

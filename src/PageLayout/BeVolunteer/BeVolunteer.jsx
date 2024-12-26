@@ -82,18 +82,24 @@ const BeVolunteer = () => {
   };
 
   return (
-    <div className="container flex flex-col mx-auto space-y-12 border max-w-4xl">
+    <div className=" flex flex-col mx-auto shadow-xl  lg:max-w-4xl mt-4 bg-green-50 rounded-xl">
       <section className="">
-        <h2 className="text-3xl pt-6 text-center font-body font-semibold text-gray-900 capitalize dark:text-white">
-          Be A Volunteer
-        </h2>
+        <div className=" px-4 lg:px-0">
+          <h2 className="text-3xl pt-6 text-center font-body font-semibold capitalize ">
+            Be A Volunteer
+          </h2>
+          <p className="lg:w-8/12 lg:ml-40 text-center">
+            Many people have different reasons to volunteer. For us,
+            volunteering is one, if not the most rewarding experience in the
+            world. There’s truly something about going out of your way to help
+            others.
+          </p>
+        </div>
 
         <form onSubmit={handleVolunteerRequest} className="card-body ">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 p-12">
+          <div className="grid grid-cols-1 lg:gap-6 sm:grid-cols-2 lg:p-10">
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
-                Post Title
-              </label>
+              <label className=" font-semibold ">Post Title</label>
               <input
                 placeholder="Enter your title of the post"
                 name="postTitle"
@@ -106,7 +112,7 @@ const BeVolunteer = () => {
             </div>
 
             <div className="flex flex-col gap-2 ">
-              <label className="text-gray-800 font-semibold" htmlFor="category">
+              <label className=" font-semibold " htmlFor="category">
                 Category
               </label>
               <select
@@ -126,13 +132,12 @@ const BeVolunteer = () => {
             </div>
 
             <div className="flex flex-col gap-2 ">
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
-                Location
-              </label>
+              <label className=" font-semibold ">Location</label>
               <select
                 name="location"
                 id="location"
                 defaultValue={location}
+                disabled
                 className="border p-2 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring rounded-md"
               >
                 <option value="Dhaka">Dhaka</option>
@@ -150,9 +155,7 @@ const BeVolunteer = () => {
             </div>
 
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
-                Thumbnail
-              </label>
+              <label className=" font-semibold ">Thumbnail</label>
               <input
                 defaultValue={thumbnail}
                 readOnly
@@ -164,9 +167,7 @@ const BeVolunteer = () => {
               />
             </div>
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
-                No. of Volunteer Needed
-              </label>
+              <label className=" font-semibold ">No. of Volunteer Needed</label>
               <input
                 defaultValue={noOfVolunteersNeeded}
                 readOnly
@@ -178,26 +179,21 @@ const BeVolunteer = () => {
               />
             </div>
             <div className="flex flex-col gap-2 md:col-span-1">
-              <label
-                className="text-gray-800 font-semibold"
-                htmlFor="description"
-              >
+              <label className=" font-semibold " htmlFor="description">
                 Status
               </label>
               <select
                 name="status"
                 id="status"
                 defaultValue={"Requested"}
-                className="select select-bordered border p-2 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                className="select select-bordered p-2 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               >
                 <option value="Requested">Requested</option>
                 <option value="Reject">Reject</option>
               </select>
             </div>
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
-                Organizer name
-              </label>
+              <label className=" font-semibold ">Organizer name</label>
               <input
                 id="orgName"
                 name="organizerName"
@@ -208,9 +204,7 @@ const BeVolunteer = () => {
               />
             </div>
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
-                Organizer email
-              </label>
+              <label className=" font-semibold ">Organizer email</label>
               <input
                 id="orgEmail"
                 name="organizerEmail"
@@ -222,9 +216,7 @@ const BeVolunteer = () => {
             </div>
 
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
-                Volunteer name
-              </label>
+              <label className=" font-semibold ">Volunteer name</label>
               <input
                 id="volunteerName"
                 name="volunteerName"
@@ -235,9 +227,7 @@ const BeVolunteer = () => {
               />
             </div>
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
-                Volunteer email
-              </label>
+              <label className=" font-semibold ">Volunteer email</label>
               <input
                 id="volunteerEmail"
                 name="volunteerEmail"
@@ -248,10 +238,7 @@ const BeVolunteer = () => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label
-                className="text-gray-800 font-semibold"
-                htmlFor="description"
-              >
+              <label className=" font-semibold " htmlFor="description">
                 Suggestion
               </label>
               <textarea
@@ -263,10 +250,7 @@ const BeVolunteer = () => {
               ></textarea>
             </div>
             <div className="flex flex-col gap-2 md:col-span-1">
-              <label
-                className="text-gray-800 font-semibold"
-                htmlFor="description"
-              >
+              <label className=" font-semibold " htmlFor="description">
                 Description
               </label>
               <textarea
@@ -280,7 +264,7 @@ const BeVolunteer = () => {
             </div>
 
             <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-gray-800 font-semibold">Deadline</label>
+              <label className=" font-semibold ">Deadline</label>
 
               {/* Date Picker Input Field */}
               <DatePicker
@@ -290,15 +274,14 @@ const BeVolunteer = () => {
                 onChange={(date) => setStartDate(date)}
               />
             </div>
-          </div>
-
-          <div className=" mt-6 md:px-12 md:pb-12">
-            <button
-              type="submit"
-              className="btn btn-outline bg-lime-500 w-full"
-            >
-              Request
-            </button>
+            <div className=" mt-6 flex flex-col gap-2 md:col-span-2 ">
+              <button
+                type="submit"
+                className="btn btn-info btn-outline duration-300 hover:scale-105 transition"
+              >
+                Request
+              </button>
+            </div>
           </div>
         </form>
       </section>

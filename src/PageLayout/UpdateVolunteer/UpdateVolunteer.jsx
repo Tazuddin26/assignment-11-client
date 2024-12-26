@@ -1,26 +1,38 @@
-import React, { useContext, useState } from "react";
-import DatePicker from "react-datepicker";
+import { useContext, useState } from "react";
 import AuthContext from "../../Context/AuthContext";
-import { useNavigate } from "react-router-dom";
-const bgimage = "https://i.ibb.co.com/wQttXq3/global.jpg";
-const AddVolunteerPost = () => {
+import DatePicker from "react-datepicker";
+import { useLoaderData } from "react-router-dom";
+
+const UpdateVolunteer = () => {
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const loadedData = useLoaderData();
   const [startDate, setStartDate] = useState(new Date());
-  const handleVolunteerPost = (e) => {
+
+  const {
+    _id,
+    postTitle,
+    category,
+    location,
+    thumbnail,
+    noOfVolunteersNeeded,
+    deadline,
+    description,
+  } = loadedData;
+
+  const handleUpdatePost = (e) => {
     e.preventDefault();
     const form = e.target;
     const postTitle = form.postTitle.value;
     const category = form.category.value;
     const location = form.location.value;
     const thumbnail = form.thumbnail.value;
-    const noOfVolunteersNeeded = parseInt(form.noOfVolunteersNeeded.value);
+    const noOfVolunteersNeeded = form.noOfVolunteersNeeded.value;
     const organizerName = form.organizerName.value;
     const organizerEmail = form.organizerEmail.value;
     const description = form.description.value;
-    // const status = form.status.value;
     const deadline = startDate.toLocaleDateString();
-    const addVolunteer = {
+    const updateVolunteer = {
+      _id,
       postTitle,
       category,
       location,
@@ -28,41 +40,35 @@ const AddVolunteerPost = () => {
       noOfVolunteersNeeded,
       deadline,
       description,
-      //   status,
-      organizerEmail,
       organizerName,
+      organizerEmail,
     };
 
-    fetch("http://localhost:4000/volunteer", {
-      method: "POST",
+    fetch(`http://localhost:4000/volunteer/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(addVolunteer),
+      body: JSON.stringify(updateVolunteer),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("add volunteer", data);
-        //Sweet Alert
+        console.log("volunteer update", data);
+      })
+      .catch((error) => {
+        console.log("update data error", error);
       });
-    navigate("/manageMyPost");
   };
 
   return (
-    <div className="container flex flex-col mx-auto space-y-12 border max-w-4xl lg:mt-10 lg:my-10 rounded-xl bg-green-50">
+    <div className="container flex flex-col mx-auto space-y-12 border max-w-4xl mt-10 rounded-xl">
       <section className="">
-        <div className="space-y-4">
-          <h2 className=" text-3xl pt-6 text-center font-body font-semibold text-gray-900 capitalize dark:text-white">
-            Please Input Volunteer Information
-          </h2>
-          <p className="text-center">
-            You can gain valuable skills while working as a volunteer. When
-            applying for a new role,
-          </p>
-        </div>
+        <h2 className="text-3xl pt-6 text-center font-body font-semibold text-gray-900 capitalize dark:text-white">
+          Updated Volunteer Information
+        </h2>
 
-        <form onSubmit={handleVolunteerPost} className="card-body  ">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:p-12">
+        <form onSubmit={handleUpdatePost} className="card-body ">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 p-12">
             <div>
               <label className="text-gray-800 font-semibold dark:text-gray-200">
                 Post Title
@@ -71,6 +77,7 @@ const AddVolunteerPost = () => {
                 placeholder="Enter your title of the post"
                 name="postTitle"
                 id="postTitle"
+                defaultValue={postTitle}
                 type="text"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
@@ -83,6 +90,7 @@ const AddVolunteerPost = () => {
               <select
                 name="category"
                 id="category"
+                defaultValue={category}
                 className="border p-2 rounded-md "
               >
                 <option value="Healthcare">Healthcare</option>
@@ -100,6 +108,7 @@ const AddVolunteerPost = () => {
               <select
                 name="location"
                 id="location"
+                defaultValue={location}
                 className="border p-2 rounded-md"
               >
                 <option value="Dhaka">Dhaka</option>
@@ -123,6 +132,7 @@ const AddVolunteerPost = () => {
               <input
                 id="thumbnail"
                 name="thumbnail"
+                defaultValue={thumbnail}
                 placeholder="Enter your thumbnail link"
                 type="url"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
@@ -133,8 +143,9 @@ const AddVolunteerPost = () => {
                 No. of Volunteer Needed
               </label>
               <input
-                id="noOfVolunteersNeeded"
+                id="noOfVolunteer"
                 name="noOfVolunteersNeeded"
+                defaultValue={noOfVolunteersNeeded}
                 placeholder="Enter the total number of people you need"
                 type="text"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
@@ -174,8 +185,7 @@ const AddVolunteerPost = () => {
               {/* Date Picker Input Field */}
               <DatePicker
                 className="border p-2 rounded-md w-full  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-                selected={startDate}
-                readOnly
+                selected={startDate || new Date()}
                 onChange={(date) => setStartDate(date)}
               />
             </div>
@@ -191,16 +201,19 @@ const AddVolunteerPost = () => {
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 name="description"
                 id="description"
+                readOnly
+                defaultValue={description}
               ></textarea>
             </div>
-            <div className=" mt-6 flex flex-col gap-2 md:col-span-2">
-              <button
-                type="submit"
-                className="btn btn-info btn-outline duration-300 hover:scale-105 transition"
-              >
-                Add Volunteer
-              </button>
-            </div>
+          </div>
+
+          <div className=" mt-6 md:px-12 md:pb-12">
+            <button
+              type="submit"
+              className="btn btn-outline bg-lime-400 w-full"
+            >
+              Update Volunteer
+            </button>
           </div>
         </form>
       </section>
@@ -208,4 +221,4 @@ const AddVolunteerPost = () => {
   );
 };
 
-export default AddVolunteerPost;
+export default UpdateVolunteer;

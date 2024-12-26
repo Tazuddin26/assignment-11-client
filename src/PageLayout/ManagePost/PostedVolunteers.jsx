@@ -2,26 +2,64 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../Context/AuthContext";
 import { CiEdit } from "react-icons/ci";
 import { IoTrashBinOutline } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const PostedVolunteers = () => {
   const [volunteers, setVolunteers] = useState([]);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:4000/volunteers?email=${user?.email}`)
+    fetch(`http://localhost:4000/volunteer?email=${user?.email}`, {})
       .then((res) => res.json())
       .then((data) => setVolunteers(data));
-  }, [user.email]);
+  }, [user?.email]);
+
+  const handleDeleteMyVolunteer = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:4000/volunteer/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log('deleted data',data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your post has been deleted.",
+                icon: "success",
+              });
+            }
+            const deletedData = volunteers.filter(
+              (deletePost) => deletePost._id !== id
+            );
+            // console.log(deletedData);
+            setVolunteers(deletedData);
+            //  navigate("/managePost");
+          });
+      }
+    });
+  };
+
   return (
-    <div className="max-w-7xl mx-auto my-10">
-      <p className="text-center text-3xl font-semibold">
-        Your Added Vlounteer - {volunteers.length}
+    <div className="max-w-7xl mx-auto my-5">
+      <p className="text-center text-2xl font-semibold mb-4">
+        Your Added Vlounteer: {volunteers.length}
       </p>
       <div className="overflow-x-auto mt-5 hidden md:block">
-        <table className="table bg-purple-50 ">
+        <table className="table text-black">
           {/* head */}
-          <thead className="border-t bg-lime-300 text-center text-base font-semibold">
+          <thead className="border-t text-black bg-sky-200 text-center text-base font-semibold">
             <tr>
               <th></th>
-              <th>organizerName</th>
               <th>Post Title</th>
               <th>category</th>
               <th>deadline</th>
@@ -37,34 +75,20 @@ const PostedVolunteers = () => {
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </th>
-                <td>
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12 mr-10">
-                        <img
-                          src={user?.photoURL}
-                          alt="user Photo"
-                          className="border border-purple-800 rounded-full"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">{user?.dispalyName}</div>
-                      <small className="text-sm opacity-50">
-                        {user?.email}
-                      </small>
-                    </div>
-                  </div>
-                </td>
                 <td>{volunteer.postTitle}</td>
                 <td>{volunteer.category}</td>
                 <td>{volunteer.deadline}</td>
                 <td>{volunteer.location}</td>
                 <th className="space-x-6">
-                  <button className=" font-bold border-b-2 hover:border-purple-700 text-sky-600 ">
-                    <CiEdit size={24} />
-                  </button>
-                  <button className="font-bold border-b-2 hover:border-purple-700 text-rose-700">
+                  <Link to={`/updateVolunteer/${volunteer._id}`} className="">
+                    <button className=" font-bold border-b-2 hover:border-purple-700 text-sky-600 ">
+                      <CiEdit size={24} />
+                    </button>
+                  </Link>
+                  <button
+                    onClick={() => handleDeleteMyVolunteer(volunteer._id)}
+                    className="font-bold border-b-2 hover:border-purple-700 text-rose-700"
+                  >
                     <IoTrashBinOutline size={20} />
                   </button>
                 </th>
@@ -76,13 +100,12 @@ const PostedVolunteers = () => {
       {/* small view */}
       <table className="table bg-purple-50 md:hidden">
         {/* head */}
-        <thead className="border-t bg-lime-300 text-center text-base font-semibold">
+        <thead className="border-t text-black bg-sky-200 text-center text-base font-semibold">
           <tr>
             <th></th>
 
             <th>category</th>
             <th>deadline</th>
-
             <th>Actions</th>
           </tr>
         </thead>
@@ -98,9 +121,11 @@ const PostedVolunteers = () => {
               <td>{volunteer.category}</td>
               <td>{volunteer.deadline}</td>
               <th className="space-x-6">
-                <button className=" font-bold border-b-2 hover:border-purple-700 text-sky-600 ">
-                  <CiEdit size={24} />
-                </button>
+                <Link to={`/updateVolunteer/${volunteer._id}`} className="">
+                  <button className=" font-bold border-b-2 hover:border-purple-700 text-sky-600 ">
+                    <CiEdit size={24} />
+                  </button>
+                </Link>
                 <button className="font-bold border-b-2 hover:border-purple-700 text-rose-700">
                   <IoTrashBinOutline size={20} />
                 </button>
