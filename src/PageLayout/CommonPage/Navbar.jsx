@@ -34,10 +34,10 @@ const Navbar = () => {
           <summary>My Profile</summary>
           <ul className="p-2 lg:w-52 w-40 lg:border border-lime-500">
             <li>
-              <NavLink to="/addVolunteer">Add Volunteer</NavLink>
+              <NavLink to="/addVolunteerPost">Add Volunteer</NavLink>
             </li>
             <li>
-              <NavLink to="/managePost">Manage My Posts </NavLink>
+              <NavLink to="/manageMyPost">Manage My Posts </NavLink>
             </li>
           </ul>
         </details>
@@ -77,7 +77,7 @@ const Navbar = () => {
           className="lg:w-36 w-28 border p-2 m-2 rounded-xl bg-lime-400"
         />
       </div>
-      <div className="navbar-center hidden lg:flex ">
+      <div className="navbar-center hidden lg:flex z-50">
         <ul className="menu menu-horizontal px-1 text-xl gap-28">{menuLink}</ul>
       </div>
       <div className="navbar-end">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from './Banner';
+import Banner from './Banner/Banner';
 import VolunteerNeed from '../PageLayout/VolunteerNeed/VolunteerNeed';
 import AboutTeam from './AboutTeam';
 import TaskHighlite from './TaskHighlite';

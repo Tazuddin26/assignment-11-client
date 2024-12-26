@@ -26,7 +26,7 @@ const NeedVolunteer = () => {
       })
       .catch((err) => console.error("Error fetching initial data:", err));
   }, [search, sortData]);
-  console.log('sorted',sortData);
+  console.log("sorted", sortData);
   console.log(volunteers);
   const [view, setView] = React.useState("grid");
 
@@ -50,55 +50,54 @@ const NeedVolunteer = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="mt-5 lg:flex justify-between items-center  ">
-        <ToggleButtonGroup
-          orientation="horizontal"
-          value={view}
-          exclusive
-          onChange={handleChange}
-          className="border ml-40 lg:ml-0 border-lime-500"
-        >
-          <ToggleButton
-            onClick={() => handleTableView(true)}
-            value="list"
-            aria-label="list"
+      <div className="mt-5 lg:flex lg:justify-between items-center space-y-6 ">
+        <div className="flex gap-4 items-center justify-center ">
+          <ToggleButtonGroup
+            orientation="horizontal"
+            value={view}
+            exclusive
+            onChange={handleChange}
+            className="border border-lime-500"
           >
-            <ViewListIcon />
-          </ToggleButton>
-          <ToggleButton
-            onClick={() => handleGridView(true)}
-            value="module"
-            aria-label="module"
-          >
-            <ViewModuleIcon />
-          </ToggleButton>
-        </ToggleButtonGroup>
-        <div className="flex  gap-4">
+            <ToggleButton
+              onClick={() => handleTableView(true)}
+              value="list"
+              aria-label="list"
+            >
+              <ViewListIcon />
+            </ToggleButton>
+            <ToggleButton
+              onClick={() => handleGridView(true)}
+              value="module"
+              aria-label="module"
+            >
+              <ViewModuleIcon />
+            </ToggleButton>
+          </ToggleButtonGroup>
+
           <select
+            defaultValue="Sorted By Deadline"
             onChange={(e) => setSortData(e.target.value)}
             className="select select-bordered max-w-xs"
           >
-            <option disabled selected>
-              Sorted By Deadline
-            </option>
+            <option disabled>Sorted By Deadline</option>
             <option value="1">Ascending</option>
             <option value="-1">Descending</option>
           </select>
-
-          <div className="join mr-10">
-            <input
-              className="input input-bordered join-item"
-              placeholder="Search..."
-              onChange={(e) => setSearchValue(e.target.value)}
-              value={searchValue}
-            />
-            <button
-              onClick={() => handleSearchValue()}
-              className="btn bg-lime-500 join-item rounded-r-xl"
-            >
-              Search
-            </button>
-          </div>
+        </div>
+        <div className="join ml-16 lg:ml-0">
+          <input
+            className="input input-bordered join-item"
+            placeholder="Search..."
+            onChange={(e) => setSearchValue(e.target.value)}
+            value={searchValue}
+          />
+          <button
+            onClick={() => handleSearchValue()}
+            className="btn bg-lime-500 join-item rounded-r-xl"
+          >
+            Search
+          </button>
         </div>
       </div>
       <article className="max-w-2xl px-6 py-8 mx-auto space-y-16 dark:bg-gray-100 dark:text-gray-900">
@@ -116,7 +115,7 @@ const NeedVolunteer = () => {
       </article>
       <div>
         <div className={isGridView ? "block" : "hidden"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20 px-3 lg:px-0">
             {volunteers.map((volunteer) => (
               <VolunteerNeedCard key={volunteer._id} volunteer={volunteer} />
             ))}

@@ -14,7 +14,7 @@ const VolunteerNeed = () => {
   return (
     <div className="px-3 lg:px-0 max-w-7xl mx-auto ">
       <div className="space-y-4">
-        <h1 className="text-5xl font-semibold tracking-wide text-center">
+        <h1 className="text-4xl font-semibold tracking-wide text-center mt-10">
           Volunteer Needs Now
         </h1>
         <p className="text-gray-600 tracking-wide max-w-2xl mx-auto text-center ">
@@ -23,14 +23,14 @@ const VolunteerNeed = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 ">
         {volunteers.map((volunteer) => (
           <VolunteerNeedCard key={volunteer._id} volunteer={volunteer} />
         ))}
       </div>
       <div className="flex justify-center items-center">
         <Link to="/volunteers-need">
-          <button className="btn btn-info px-7">SEE ALL</button>
+          <button className="btn btn-outline bg-sky-400 border border-pink-500  px-7">SEE ALL</button>
         </Link>
       </div>
     </div>

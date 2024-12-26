@@ -8,12 +8,16 @@ import PrivateRoute from "./PrivateRoute";
 import NeedVolunteer from "../PageLayout/NeeVolunteer/NeedVolunteer";
 import BeVolunteer from "../PageLayout/BeVolunteer/BeVolunteer";
 import ManagePost from "../PageLayout/ManagePost/ManagePost";
+import ManageMyPost from "../PageLayout/ManagePost/ManageMyPost";
+import ErrorPage from "../PageLayout/ErrorPage";
+import AddVolunteerPost from "../PageLayout/AddVolunteerPost/AddVolunteerPost";
+import VolunteerDetailsNeedPost from "../PageLayout/ManagePost/PostedVolunteers";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainPageLayout />,
-    errorElement: <h2>ROUTE Not Found</h2>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -56,6 +60,30 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ManagePost />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/addVolunteerPost",
+        element: (
+          <PrivateRoute>
+            <AddVolunteerPost />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manageMyPost",
+        element: (
+          <PrivateRoute>
+            <ManageMyPost />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/volunteers",
+        element: (
+          <PrivateRoute>
+            <VolunteerDetailsNeedPost />
           </PrivateRoute>
         ),
       },
