@@ -4,10 +4,22 @@ import { CiEdit } from "react-icons/ci";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loader from "../LoaderPage/Loader";
+import Error404 from "../LoaderPage/Error404";
 const PostedVolunteers = () => {
   const [volunteers, setVolunteers] = useState([]);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [showLoader, setShowLoader] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLoader(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
   useEffect(() => {
     fetch(`http://localhost:4000/volunteer?email=${user?.email}`, {})
       .then((res) => res.json())
@@ -48,8 +60,10 @@ const PostedVolunteers = () => {
       }
     });
   };
-
+  if (navigate.state === "loading") return <Loader />;
   return (
+    <>
+    {volunteers.length > 0 ? (
     <div className="max-w-7xl mx-auto my-5">
       <p className="text-center text-2xl font-semibold mb-4">
         Your Added Vlounteer: {volunteers.length}
@@ -135,6 +149,12 @@ const PostedVolunteers = () => {
         </tbody>
       </table>
     </div>
+    ) : showLoader ? (
+      <Loader />
+    ) : (
+      <Error404 />
+    )}
+    </>
   );
 };
 

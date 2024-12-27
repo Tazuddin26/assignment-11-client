@@ -15,9 +15,9 @@ const Error404 = () => {
           <div className="flex items-center mt-6 gap-x-3">
             <Link
               to="/"
-              className="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-lime-700  rounded-lg shrink-0 sm:w-auto hover:bg-green-600"
+              className="btn btn-warning "
             >
-              Take me home
+              Quick Home
             </Link>
           </div>
         </div>
