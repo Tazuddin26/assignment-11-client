@@ -6,7 +6,7 @@ const VolunteerNeed = () => {
   const [volunteers, setVolunteers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/volunteers", {})
+    fetch("http://localhost:4000/volunteers")
       .then((res) => res.json())
       .then((data) => setVolunteers(data));
   }, []);
@@ -30,7 +30,9 @@ const VolunteerNeed = () => {
       </div>
       <div className="flex justify-center items-center mb-4">
         <Link to="/volunteers-need">
-          <button className="btn btn-info btn-outline duration-300 hover:scale-110 transition px-7">SEE ALL</button>
+          <button className="btn btn-info btn-outline duration-300 hover:scale-110 transition px-7">
+            SEE ALL
+          </button>
         </Link>
       </div>
     </div>

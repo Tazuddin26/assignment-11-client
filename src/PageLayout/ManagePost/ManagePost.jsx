@@ -5,11 +5,13 @@ import Swal from "sweetalert2";
 import Loader from "../LoaderPage/Loader";
 import { useNavigate } from "react-router-dom";
 import Error404 from "../LoaderPage/Error404";
+import UseAxiosSecures from "../../Hook/useAxiosSecures";
 const ManagePost = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [volunteers, setVolunteers] = useState([]);
   const [showLoader, setShowLoader] = useState(true);
+  const axiosSecure = UseAxiosSecures();
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLoader(false);
@@ -52,9 +54,12 @@ const ManagePost = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:4000/request-list?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setVolunteers(data));
+    // fetch(`http://localhost:4000/request-list?email=${user?.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => setVolunteers(data));
+    axiosSecure
+      .get(`/request-list?email=${user?.email}`)
+      .then((res) => setVolunteers(res.data));
   }, [user.email]);
 
   if (navigate.state === "loading") return <Loader />;

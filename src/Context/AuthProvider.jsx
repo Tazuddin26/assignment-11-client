@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../firebase/firebase.init";
+import axios from "axios";
 
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
@@ -49,7 +50,23 @@ const AuthProvider = ({ children }) => {
     const disconnect = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log("state Captured", currentUser?.email);
-      setLoading(false);
+      if (currentUser?.email) {
+        const user = { email: currentUser.email };
+
+        axios
+          .post("http://localhost:4000/jwt", user, { withCredentials: true })
+          .then((res) => {
+            console.log("login", res.data);
+            setLoading(false);
+          });
+      } else {
+        axios
+          .post("http://localhost:4000/logout", {}, { withCredentials: true })
+          .then((res) => {
+            console.log("logout", res.data);
+            setLoading(false);
+          });
+      }
     });
     return () => {
       disconnect();
