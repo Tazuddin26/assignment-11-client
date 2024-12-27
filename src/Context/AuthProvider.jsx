@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import auth from "../firebase/firebase.init";
 
@@ -34,6 +35,15 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
+  const profileManage = (name, image) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: image,
+    }).then(() => {
+      setUser({ ...auth.currentUser });
+    });
+  };
 
   useEffect(() => {
     const disconnect = onAuthStateChanged(auth, (currentUser) => {
@@ -52,6 +62,7 @@ const AuthProvider = ({ children }) => {
     createRegisterUser,
     createSignInUser,
     googleSignIn,
+    profileManage,
     createSignOutUser,
   };
   return (

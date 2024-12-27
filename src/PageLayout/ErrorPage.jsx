@@ -1,30 +1,41 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
+  const navigate = useNavigate();
+  const error = useRouteError();
+  const handleGoBack = () => {
+   navigate("/");
+}
   return (
-    <section className="flex items-center h-full p-16 dark:bg-gray-50 dark:text-gray-800">
-      <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-        <div className="max-w-md text-center">
-          <h2 className="mb-8 font-extrabold text-9xl dark:text-gray-400">
-            <span className="sr-only">Error</span>404
-          </h2>
-          <p className="text-2xl font-semibold md:text-3xl">
-            Sorry, we couldn't find this page.
+    <div className="flex justify-center items-center my-32">
+      <div className="border rounded-2xl w-8/12 h-[500px] bg-slate-500  ">
+        <button
+          onClick={handleGoBack}
+          className="btn btn-outline text-base bg-yellow-500"
+        >
+          Go Back Home{" "}
+        </button>
+        <div className="">
+          <div className=" flex justify-center">
+            <img
+              src="https://i.ibb.co.com/wdwDHVh/404.png"
+              alt=""
+              className="w-40 h-[200px]"
+            />
+          </div>
+          <h1 className="text-8xl font-bold text-yellow-400 text-center">
+            404
+          </h1>
+          <p className="text-4xl font-bold text-center text-yellow-400">
+            Page not found
           </p>
-          <p className="mt-4 mb-8 dark:text-gray-600">
-            But dont worry, you can find plenty of other things on our homepage.
+
+          <p className="text-4xl font-bold text-center text-yellow-400">
+            <i>{error.statusText || error.message}</i>
           </p>
-          <Link
-            to="/"
-            rel="noopener noreferrer"
-            className="px-8 py-3 btn btn-success uppercase font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
-          >
-            Back to homepage
-          </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

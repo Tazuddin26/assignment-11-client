@@ -1,32 +1,47 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import registerLottie from "../../assets/register.json";
 import Lottie from "lottie-react";
 import AuthContext from "../../Context/AuthContext";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 const Register = () => {
-  const { createRegisterUser } = useContext(AuthContext);
-
+  const { createRegisterUser, profileManage } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleRegister = (e) => {
+    setError("");
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
-    const photo = form.photo.value;
+    const image = form.image.value;
     const password = form.password.value;
-    console.log("register Clicked", name, email, password, photo);
+
+    if (password.length < 6) {
+      setError("Password Length must be at least 6 character");
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      setError("Must have a Lowercase letter in the password ");
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      setError("Must have an Uppercase letter in the password ");
+      return;
+    }
 
     createRegisterUser(email, password)
       .then((result) => {
         console.log(result.user);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your Registration is Successfully",
-          showConfirmButton: false,
-          timer: 1500,
+        toast.success("Successfully Registration !", {
+          position: "top-center",
+          autoClose: 3000,
         });
         e.target.reset();
+        profileManage(name, image);
+        navigate("/");
       })
       .catch((error) => console.log(error.message));
   };
@@ -76,7 +91,7 @@ const Register = () => {
           </label>
           <input
             type="url"
-            name="photo"
+            name="image"
             placeholder="Please Enter Photo url"
             className="w-full p-3 rounded dark:bg-gray-100"
             required
@@ -95,14 +110,13 @@ const Register = () => {
           />
         </div>
         {/* <p>Already have an account ? Login.</p> */}
-        <Link to="/" className="btn btn-info btn-outline w-full p-3 text-sm font-bold tracking-wide uppercase rounded">
-          <button
-            type="submit"
-            
-          >
-            Register
-          </button>
-        </Link>
+        <p className="mx-auto text-red-600 text-sm">{error}</p>
+        <button
+          className="btn btn-info btn-outline w-full p-3 text-sm font-bold tracking-wide uppercase rounded"
+          type="submit"
+        >
+          Register
+        </button>
       </form>
     </div>
   );
