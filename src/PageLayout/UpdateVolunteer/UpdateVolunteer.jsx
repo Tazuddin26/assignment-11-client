@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import AuthContext from "../../Context/AuthContext";
 import DatePicker from "react-datepicker";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdateVolunteer = () => {
   const { user } = useContext(AuthContext);
   const loadedData = useLoaderData();
   const [startDate, setStartDate] = useState(new Date());
-
+const navigate = useNavigate()
   const {
     _id,
     postTitle,
@@ -54,10 +54,15 @@ const UpdateVolunteer = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("volunteer update", data);
+        toast.success("Your Volunteer post has been Updated", {
+          position: "top-center",
+          autoClose: 3000,
+        });
       })
       .catch((error) => {
         console.log("update data error", error);
       });
+      navigate("/");
   };
 
   return (
@@ -210,7 +215,7 @@ const UpdateVolunteer = () => {
           <div className=" mt-6 md:px-12 md:pb-12">
             <button
               type="submit"
-              className="btn btn-outline bg-lime-400 w-full"
+              className="btn btn-info btn-outline duration-300 hover:scale-105 transition w-full"
             >
               Update Volunteer
             </button>

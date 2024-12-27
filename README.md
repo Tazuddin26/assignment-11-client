@@ -1,8 +1,31 @@
-# React + Vite
+Live Site : -NewDay
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features :
 
-Currently, two official plugins are available:
+User Friendly
+Easy to open an Account by using Gmail
+Private Routes
+Personal Data Creation
+Update Data
+Delete Data
+CRUD operation
+Dynamic Title
+All Device Responsive
+A user can see all data
+A user can apply for volunteer post
+Resources:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React Router
+React Tooltip
+React-Hot-Toast
+React Hook Form
+React Router Dom
+TailwindCSS Buttons
+Mamba UI - Components
+React-Hot-Toast
+React-Spinner
+React-Icons
+Daisy UI
+TailwindCSS
+
+

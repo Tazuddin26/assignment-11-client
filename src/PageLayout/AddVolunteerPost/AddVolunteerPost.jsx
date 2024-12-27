@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import AuthContext from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
-const bgimage = "https://i.ibb.co.com/wQttXq3/global.jpg";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 const AddVolunteerPost = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ const AddVolunteerPost = () => {
     const organizerName = form.organizerName.value;
     const organizerEmail = form.organizerEmail.value;
     const description = form.description.value;
-    // const status = form.status.value;
     const deadline = startDate.toLocaleDateString();
     const addVolunteer = {
       postTitle,
@@ -28,7 +28,6 @@ const AddVolunteerPost = () => {
       noOfVolunteersNeeded,
       deadline,
       description,
-      //   status,
       organizerEmail,
       organizerName,
     };
@@ -43,9 +42,12 @@ const AddVolunteerPost = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("add volunteer", data);
-        //Sweet Alert
+        toast.success("Successfully Added Volunteer !", {
+          position: "top-center",
+          autoClose: 3000,
+        });
       });
-    navigate("/manageMyPost");
+    navigate("/volunteers-need");
   };
 
   return (
