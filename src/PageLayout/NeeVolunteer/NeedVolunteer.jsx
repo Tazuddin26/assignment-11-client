@@ -17,7 +17,7 @@ const NeedVolunteer = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:4000/volunteers-need?search=${search}&sort=${sortData}`
+      `https://assignment-11-server-ten-mu.vercel.app/volunteers-need?search=${search}&sort=${sortData}`
     )
       .then((res) => res.json())
       .then((data) => {

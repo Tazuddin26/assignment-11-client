@@ -137,7 +137,7 @@ const Navbar = () => {
           />
 
           <svg
-            className="swap-on h-8 w-8 fill-current border rounded-full border-white"
+            className="swap-on h-6 w-6 fill-current border bg-slate-100 rounded-full border-white"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -145,7 +145,7 @@ const Navbar = () => {
           </svg>
 
           <svg
-            className="swap-off h-8 w-8 fill-current border rounded-full border-stone-950"
+            className="swap-off h-6 w-6 fill-current border bg-slate-200 rounded-full border-stone-950"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >

@@ -32,7 +32,7 @@ const AddVolunteerPost = () => {
       organizerName,
     };
 
-    fetch("http://localhost:4000/volunteer", {
+    fetch("https://assignment-11-server-ten-mu.vercel.app/volunteer", {
       method: "POST",
       headers: {
         "content-type": "application/json",

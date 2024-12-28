@@ -39,9 +39,12 @@ const PostedVolunteers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/volunteer/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-11-server-ten-mu.vercel.app/volunteer/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             // console.log('deleted data',data);

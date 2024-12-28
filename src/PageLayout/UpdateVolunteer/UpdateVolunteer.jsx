@@ -7,7 +7,7 @@ const UpdateVolunteer = () => {
   const { user } = useContext(AuthContext);
   const loadedData = useLoaderData();
   const [startDate, setStartDate] = useState(new Date());
-const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     _id,
     postTitle,
@@ -44,7 +44,7 @@ const navigate = useNavigate()
       organizerEmail,
     };
 
-    fetch(`http://localhost:4000/volunteer/${_id}`, {
+    fetch(`https://assignment-11-server-ten-mu.vercel.app/volunteer/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -62,7 +62,7 @@ const navigate = useNavigate()
       .catch((error) => {
         console.log("update data error", error);
       });
-      navigate("/");
+    navigate("/");
   };
 
   return (

@@ -41,7 +41,7 @@ const SignIn = () => {
   return (
     <div
       className="grid max-w-screen-lg grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 
-      md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800 lg:border border-lime-500 lg:mt-10"
+      md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800 bg-green-50 shadow-xl my-10 lg:mt-10"
     >
       <div className="flex flex-col justify-between">
         <div className="hidden lg:block md:block bg-cover lg:w-6/6">
@@ -53,7 +53,7 @@ const SignIn = () => {
         <img
           src="https://i.ibb.co.com/rvQQPst/logo.png"
           alt="NewDay"
-          className="w-40 border ml-24 p-2 m-2 rounded-xl bg-yellow-200"
+          className="w-40 border ml-24 p-2 m-2 rounded-xl bg-lime-400"
         />
         <p className="text-center text-xl">Log in Your Account</p>
         <div className="lg:mt-2 space-y-6 ">

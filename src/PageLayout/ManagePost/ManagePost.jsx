@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import Loader from "../LoaderPage/Loader";
 import { useNavigate } from "react-router-dom";
 import Error404 from "../LoaderPage/Error404";
+// import "react-toastify/dist/ReactToastify.css";
+// import { toast } from "react-toastify";
 import UseAxiosSecures from "../../Hook/useAxiosSecures";
 const ManagePost = () => {
   const { user } = useContext(AuthContext);
@@ -32,9 +34,12 @@ const ManagePost = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/volunteer-request/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-11-server-ten-mu.vercel.app/volunteer-request/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -54,13 +59,11 @@ const ManagePost = () => {
   };
 
   useEffect(() => {
-    // fetch(`http://localhost:4000/request-list?email=${user?.email}`)
-    //   .then((res) => res.json())
-    //   .then((data) => setVolunteers(data));
-    axiosSecure
-      .get(`/request-list?email=${user?.email}`)
-      .then((res) => setVolunteers(res.data));
-  }, [user.email]);
+    axiosSecure.get(`/request-list?email=${user?.email}`).then((res) => {
+      // console.log(res.data);
+      setVolunteers(res.data);
+    });
+  }, [user?.email]);
 
   if (navigate.state === "loading") return <Loader />;
   return (

@@ -54,14 +54,20 @@ const AuthProvider = ({ children }) => {
         const user = { email: currentUser.email };
 
         axios
-          .post("http://localhost:4000/jwt", user, { withCredentials: true })
+          .post("https://assignment-11-server-ten-mu.vercel.app/jwt", user, {
+            withCredentials: true,
+          })
           .then((res) => {
             console.log("login", res.data);
             setLoading(false);
           });
       } else {
         axios
-          .post("http://localhost:4000/logout", {}, { withCredentials: true })
+          .post(
+            "https://assignment-11-server-ten-mu.vercel.app/logout",
+            {},
+            { withCredentials: true }
+          )
           .then((res) => {
             console.log("logout", res.data);
             setLoading(false);

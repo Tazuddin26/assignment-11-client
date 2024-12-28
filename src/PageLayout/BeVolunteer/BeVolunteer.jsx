@@ -3,6 +3,8 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext";
 import DatePicker from "react-datepicker";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const BeVolunteer = () => {
   const volunteerPost = useLoaderData();
@@ -60,22 +62,25 @@ const BeVolunteer = () => {
 
     try {
       const { data } = await axios.post(
-        `http://localhost:4000/volunteer-request`,
+        `https://assignment-11-server-ten-mu.vercel.app/volunteer-request`,
         requestVolunteer
       );
       console.log(data);
-      // toast.success("Your Volunteer Request has been sent ")
+      toast.success("Your Volunteer Request has been sent ", {
+        position: "top-center",
+        autoClose: 3000,
+      });
       // form.reset();
     } catch (err) {
       console.log(err);
     }
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/volunteer-count/${_id}`
+        `https://assignment-11-server-ten-mu.vercel.app/volunteer-count/${_id}`
       );
       console.log(requestVolunteer);
       console.log(data);
-      navigate("/managePost");
+      navigate("/manageMyPost");
     } catch (err) {
       console.log(err);
     }

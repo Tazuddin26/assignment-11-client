@@ -57,9 +57,14 @@ const Register = () => {
         </div>
       </div>
 
-      <form onSubmit={handleRegister} className="space-y-6 ">
-        <h2 className="text-3xl font-bold leading-tight text-center w-full ">
-          Please Create an Account with NewDay!
+      <form onSubmit={handleRegister} className="">
+        <h2 className="text-2xl font-bold leading-tight text-center w-full ">
+          Please Create an Account with{" "}
+          <img
+            src="https://i.ibb.co.com/rvQQPst/logo.png"
+            alt="NewDay"
+            className="w-40 border ml-24 p-2 m-2 rounded-xl bg-lime-400"
+          />
         </h2>
         <div>
           <label htmlFor="name" className="text-sm">
@@ -109,7 +114,13 @@ const Register = () => {
             required
           />
         </div>
-        {/* <p>Already have an account ? Login.</p> */}
+        <p className="text-center p-2">
+          Already have an account ?
+          <Link to="/signIn" className="text-sky-500 hover:underline ">
+            Login .
+          </Link>
+        </p>
+
         <p className="mx-auto text-red-600 text-sm">{error}</p>
         <button
           className="btn btn-info btn-outline w-full p-3 text-sm font-bold tracking-wide uppercase rounded"
