@@ -33,4 +33,7 @@ Features :
 11.  Daisy UI
 12.  TailwindCSS
 
-
+<h2>Project Image:</h2>
+<div>
+  <img src="https://i.ibb.co.com/2YcBt4YW/volunteer1.png"/>
+</div>
