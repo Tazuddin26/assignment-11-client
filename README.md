@@ -35,8 +35,11 @@ Features :
 
 <h2>Project Picture:</h2>
 <div>
-  <img src="https://i.ibb.co.com/2YcBt4YW/volunteer1.png"/>
-  <img src="https://i.ibb.co.com/7Jgzdc1J/volunteer3.png"/>
-  <img src="https://i.ibb.co.com/4ZKPq0zm/volunteer5.png"/>
-  <img src="https://i.ibb.co.com/Z61Dt4ff/volunteer4.png"/>
+  <img src="https://i.ibb.co.com/2YcBt4YW/volunteer1.png" width="400" height="200"/>
+  <img width="12"/>
+  <img src="https://i.ibb.co.com/7Jgzdc1J/volunteer3.png" width="400" height="200"/>
+  <img width="12"/>
+  <img src="https://i.ibb.co.com/4ZKPq0zm/volunteer5.png" width="400" height="200"/>
+  <img width="12"/>
+  <img src="https://i.ibb.co.com/Z61Dt4ff/volunteer4.png" width="400" height="200"/>
 </div>
