@@ -1,31 +1,36 @@
+<h2>Volunteer Project:</h2>
+The Volunteer Website is a dedicated platform designed to connect individuals with meaningful volunteer opportunities. Whether you're passionate about environmental conservation, education, healthcare, or community development, this website makes it easy to find and join causes that align with your interests and skills. The platform also supports organizations by helping them recruit and manage volunteers effectively.
+
+
 Live Site : https://assignment-11-client-sid-68c66.web.app/
 
 Features :
 
-User Friendly
-Easy to open an Account by using Gmail
-Private Routes
-Personal Data Creation
-Update Data
-Delete Data
-CRUD operation
-Dynamic Title
-All Device Responsive
-A user can see all data
-A user can apply for volunteer post
-Resources:
+1.  User Friendly
+2.  Easy to open an Account by using Gmail
+3.  Private Routes
+4.  Personal Data Creation
+5.  Update Data
+6.  Delete Data
+7.  CRUD operation
+8.  Dynamic Title
+9.  All Device Responsive
+10.  A user can see all data
+11.  A user can apply for volunteer post
 
-React Router
-React Tooltip
-React-Hot-Toast
-React Hook Form
-React Router Dom
-TailwindCSS Buttons
-Mamba UI - Components
-React-Hot-Toast
-React-Spinner
-React-Icons
-Daisy UI
-TailwindCSS
+<h2>Technology Used:</h2>
+
+1.  React Router
+2.  React Tooltip
+3.  React-Hot-Toast
+4.  React Hook Form
+5.  React Router Dom
+6.  TailwindCSS Buttons
+7.  Mamba UI - Components
+8.  React-Hot-Toast
+9.  React-Spinner
+10.  React-Icons
+11.  Daisy UI
+12.  TailwindCSS
 
 
