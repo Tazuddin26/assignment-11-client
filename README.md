@@ -36,7 +36,7 @@ Features :
 <h2>Project Picture:</h2>
 <div>
   <img src="https://i.ibb.co.com/2YcBt4YW/volunteer1.png"/>
-  <img src="https://i.ibb.co.com/ch7CV3Yp/Volunteer2.png"/>
+  <img src="https://i.ibb.co.com/7Jgzdc1J/volunteer3.png"/>
   <img src="https://i.ibb.co.com/4ZKPq0zm/volunteer5.png"/>
   <img src="https://i.ibb.co.com/Z61Dt4ff/volunteer4.png"/>
 </div>
