@@ -89,15 +89,15 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-green-100 shadow-green-800 shadow-md p-4 fixed top-0 z-10">
-      <div className="navbar-start relative ">
+    <div className="navbar bg-base-100  shadow-green-800 shadow-md p-4 fixed top-0 z-10">
+      <div className="navbar-start relative  ">
         <div className="dropdown ">
-          <div tabIndex={0} role="button" className=" lg:hidden">
+          <div tabIndex={0} role="button" className=" lg:hidden ">
             <CiMenuBurger size={24} />
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-md font-fs text-xl dropdown-content  rounded-md z-[10] mt-3 w-56 p-2 shadow-md "
+            className="menu menu-md font-fs text-xl dropdown-content dark:text-gray-800 bg-green-100 rounded-md z-[10] mt-3 w-56 p-2 shadow-md "
           >
             {menuLink}
           </ul>
@@ -112,7 +112,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex z-50">
-        <ul className="menu menu-horizontal py-0 text-xl gap-10 font-fs">
+        <ul className="menu menu-horizontal py-0 text-xl gap-10 font-fs dark:text-gray-800 ">
           {menuLink}
         </ul>
       </div>
