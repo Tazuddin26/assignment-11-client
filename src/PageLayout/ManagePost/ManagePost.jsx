@@ -74,7 +74,7 @@ const ManagePost = () => {
             Number Of Requests
           </h2>
           <div className="overflow-x-auto bg-green-50 shadow-xl rounded-sm">
-            <p className="w-0 h-0 border-[20px] border-transparent border-l-lime-500 border-r-0 -rotate-45 font-semibold lg:mt-2 lg:mr-1 font-fs lg:mb-4 absolute z-10  lg:top-52 lg:right-20 top-52 right-1 mt-0  ">
+            <p className="w-0 h-0 border-[20px] border-transparent border-l-lime-500 border-r-0 -rotate-45 font-semibold lg:mt-2 lg:mr-1 font-fs lg:mb-4 absolute   lg:top-52 lg:right-20 top-52 right-1 mt-0  ">
               <span className="absolute -top-3 text-rose-700 font-bold right-2 rotate-45">
                 {volunteers.length}
               </span>
