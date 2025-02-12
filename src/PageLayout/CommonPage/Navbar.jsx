@@ -62,7 +62,7 @@ const Navbar = () => {
       <li>
         <details>
           <summary>My Profile</summary>
-          <ul className="p-2 lg:w-56 w-40 rounded-sm bg-green-100 font-fs">
+          <ul className="p-2 lg:w-56 w-40 rounded-sm bg-green-200 font-fs">
             <li>
               <NavLink
                 to="/addVolunteerPost"
@@ -89,7 +89,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-green-800 shadow-md p-4 fixed top-0 z-10">
+    <div className="navbar bg-green-100 shadow-green-800 shadow-md p-4 fixed top-0 z-10">
       <div className="navbar-start relative ">
         <div className="dropdown ">
           <div tabIndex={0} role="button" className=" lg:hidden">
@@ -97,7 +97,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-md font-fs text-xl dropdown-content bg-green-50 rounded-md z-[10] mt-3 w-56 p-2 shadow-md "
+            className="menu menu-md font-fs text-xl dropdown-content  rounded-md z-[10] mt-3 w-56 p-2 shadow-md "
           >
             {menuLink}
           </ul>

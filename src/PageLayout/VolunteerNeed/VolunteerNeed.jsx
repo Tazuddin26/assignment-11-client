@@ -37,7 +37,7 @@ const VolunteerNeed = () => {
       </div>
       <div className="flex justify-center items-center mb-4">
         <Link to="/volunteers-need">
-          <button className="mt-5 px-8 py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-lime-600 rounded-sm hover:bg-lime-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
+          <button className="btn btn-outline btn-accent px-8">
             SEE ALL
           </button>
         </Link>
