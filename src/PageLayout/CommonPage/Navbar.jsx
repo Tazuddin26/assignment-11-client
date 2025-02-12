@@ -62,7 +62,7 @@ const Navbar = () => {
       <li>
         <details>
           <summary>My Profile</summary>
-          <ul className="p-2 lg:w-56 w-40 rounded-sm bg-green-200 font-fs">
+          <ul className="p-2 lg:w-56 w-40 rounded-sm bg-green-200 text-gray-800 font-fs">
             <li>
               <NavLink
                 to="/addVolunteerPost"
