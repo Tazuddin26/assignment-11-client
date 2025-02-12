@@ -6,6 +6,7 @@ import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { Link, useLoaderData } from "react-router-dom";
+import LoadingSpinner from "../LoaderPage/LoadingSpinner";
 
 const NeedVolunteer = () => {
   const [volunteers, setVolunteers] = useState([]);
@@ -14,6 +15,7 @@ const NeedVolunteer = () => {
   const [isGridView, setIsGridView] = useState(true);
   const [isTableView, setIsTableView] = useState(false);
   const [sortData, setSortData] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(
@@ -22,11 +24,12 @@ const NeedVolunteer = () => {
       .then((res) => res.json())
       .then((data) => {
         setVolunteers(data);
+        setLoading(false);
       })
       .catch((err) => console.error("Error fetching initial data:", err));
   }, [search, sortData]);
-  console.log("sorted", sortData);
-  console.log(volunteers);
+  // console.log("sorted", sortData);
+  // console.log(volunteers);
   const [view, setView] = React.useState("grid");
 
   const handleChange = (event, nextView) => {
@@ -46,17 +49,18 @@ const NeedVolunteer = () => {
     console.log("searching text is", searchValue);
     setSearch(searchValue);
   };
-
+  if (loading) {
+    return <LoadingSpinner />;
+  }
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="mt-5 lg:flex lg:justify-between items-center space-y-6 ">
+    <div className="max-w-7xl mx-auto mt-28">
+      <div className=" lg:flex lg:justify-between items-center space-y-6 ">
         <div className="flex gap-4 items-center justify-center ">
           <ToggleButtonGroup
             orientation="horizontal"
             value={view}
             exclusive
             onChange={handleChange}
-            className="border bg-gray-500"
           >
             <ToggleButton
               onClick={() => handleTableView(true)}
@@ -77,7 +81,7 @@ const NeedVolunteer = () => {
           <select
             defaultValue="Sorted By Deadline"
             onChange={(e) => setSortData(e.target.value)}
-            className="select select-bordered max-w-xs"
+            className="select select-bordered max-w-xs placeholder-gray-500 capitalize font-fs text-base"
           >
             <option disabled>Sorted By Deadline</option>
             <option value="1">Ascending</option>
@@ -87,13 +91,13 @@ const NeedVolunteer = () => {
         <div className="join ml-16 lg:ml-0">
           <input
             className="input input-bordered join-item"
-            placeholder="Search..."
+            placeholder="category "
             onChange={(e) => setSearchValue(e.target.value)}
             value={searchValue}
           />
           <button
             onClick={() => handleSearchValue()}
-            className="btn btn-info join-item rounded-r-xl"
+            className="btn btn-accent bg-green-500 join-item rounded-r-xl capitalize"
           >
             Search
           </button>
@@ -101,16 +105,16 @@ const NeedVolunteer = () => {
       </div>
       <article className="max-w-2xl px-6 py-8 mx-auto space-y-16 dark:bg-gray-100 dark:text-gray-900">
         <div className="w-full mx-auto space-y-4">
-          <h1 className="text-3xl font-bold leading-none text-center ">
+          <h1 className="text-3xl font-bold leading-none text-center font-fs ">
             Welcome to{" "}
             <img
               src="https://i.ibb.co.com/rvQQPst/logo.png"
               alt=""
-              className="w-32 lg:ml-60 ml-28  bg-lime-500 p-2 rounded-xl border"
+              className="w-32 lg:ml-60 ml-28  bg-lime-500 p-2 rounded-xl border font-fs mt-2"
             />{" "}
             Everyone to our beautiful family at a glance
           </h1>
-          <p className="text-center">
+          <p className="text-center font-fs text-gray-600 text-xl">
             I had read articles that advised fresh graduates to volunteer in
             order to know more about their society and the world.
           </p>
@@ -118,7 +122,7 @@ const NeedVolunteer = () => {
       </article>
       <div>
         <div className={isGridView ? "block" : "hidden"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 px-3 lg:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-4 px-2 lg:px-0">
             {volunteers.map((volunteer) => (
               <VolunteerNeedCard key={volunteer._id} volunteer={volunteer} />
             ))}
@@ -129,7 +133,7 @@ const NeedVolunteer = () => {
             <div className="overflow-x-auto rounded-xl bg-green-50 hidden md:block">
               <table className="min-w-full text-xs rounded-xl">
                 <thead className=" border-b border-t bg-sky-100 ">
-                  <tr className="py-6 text-base text-center ">
+                  <tr className="py-6 text-base text-center font-fs font-bold">
                     <th className="p-3"></th>
                     <th className="p-3">Post Title</th>
                     <th className="p-3">Posted By</th>
@@ -144,7 +148,7 @@ const NeedVolunteer = () => {
                   {volunteers.map((volunteer, index) => (
                     <tr
                       key={index}
-                      className="border-b text-base border-opacity-20 text-center dark:border-gray-300 dark:bg-gray-50"
+                      className="border-b text-base font-fs border-opacity-20 text-center dark:border-gray-300 dark:bg-gray-50"
                     >
                       <td className="p-3">
                         <p>{index + 1}</p>
@@ -177,7 +181,9 @@ const NeedVolunteer = () => {
                           to={`/postDetails/${volunteer._id}`}
                           className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
                         >
-                          <button className="btn btn-info">View Details</button>
+                          <button className="px-4 py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
+                            View Details
+                          </button>
                         </Link>
                       </td>
                     </tr>

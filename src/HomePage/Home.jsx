@@ -7,7 +7,7 @@ import TaskHighlite from './TaskHighlite';
 
 const Home = () => {
     return (
-        <div className=''>
+        <div className='mt-24'>
             
             <Banner/>
             <VolunteerNeed/>

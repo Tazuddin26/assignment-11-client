@@ -51,20 +51,19 @@ const AddVolunteerPost = () => {
   };
 
   return (
-    <div className="container flex flex-col mx-auto space-y-12 border max-w-4xl lg:mt-10 lg:my-10 rounded-xl bg-green-50">
+    <div className="container flex flex-col mx-auto space-y-12 max-w-4xl rounded-xl bg-green-50 mt-32">
       <section className="">
         <div className="space-y-4">
-          <h2 className=" text-3xl pt-6 text-center font-body font-semibold text-gray-900 capitalize dark:text-white">
+          <h2 className=" text-3xl pt-6 font-fs text-center font-body font-semibold text-gray-900 capitalize dark:text-white">
             Please Input Volunteer Information
           </h2>
-          <p className="text-center">
+          <p className="text-center font-fs text-gray-600 dark:text-gray-200 text-xl">
             You can gain valuable skills while working as a volunteer. When
             applying for a new role,
           </p>
         </div>
-
-        <form onSubmit={handleVolunteerPost} className="card-body  ">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:p-12">
+        <form onSubmit={handleVolunteerPost} className="card-body font-fs ">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:p-">
             <div>
               <label className="text-gray-800 font-semibold dark:text-gray-200">
                 Post Title
@@ -198,7 +197,7 @@ const AddVolunteerPost = () => {
             <div className=" mt-6 flex flex-col gap-2 md:col-span-2">
               <button
                 type="submit"
-                className="btn btn-info btn-outline duration-300 hover:scale-105 transition"
+                className=" py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80"
               >
                 Add Volunteer
               </button>

@@ -90,10 +90,10 @@ const BeVolunteer = () => {
     <div className=" flex flex-col mx-auto shadow-xl  lg:max-w-4xl mt-4 bg-green-50 rounded-xl">
       <section className="">
         <div className=" px-4 lg:px-0">
-          <h2 className="text-3xl pt-6 text-center font-body font-semibold capitalize ">
+          <h2 className="text-3xl pt-6 text-center font-body font-semibold capitalize font-fs">
             Be A Volunteer
           </h2>
-          <p className="lg:w-8/12 lg:ml-40 text-center">
+          <p className="lg:w-8/12 lg:ml-40 text-center font-fs text-gray-600 text-xl">
             Many people have different reasons to volunteer. For us,
             volunteering is one, if not the most rewarding experience in the
             world. There’s truly something about going out of your way to help
@@ -282,7 +282,7 @@ const BeVolunteer = () => {
             <div className=" mt-6 flex flex-col gap-2 md:col-span-2 ">
               <button
                 type="submit"
-                className="btn btn-info btn-outline duration-300 hover:scale-105 transition"
+                className="px-6 py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80"
               >
                 Request
               </button>

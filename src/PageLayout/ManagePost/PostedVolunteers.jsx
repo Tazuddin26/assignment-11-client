@@ -23,9 +23,10 @@ const PostedVolunteers = () => {
   }, []);
 
   useEffect(() => {
-    axiosSecure
-      .get(`/volunteer?email=${user?.email}`)
-      .then((res) => setVolunteers(res.data));
+    axiosSecure.get(`/volunteer?email=${user?.email}`).then((res) => {
+      setVolunteers(res.data);
+      setShowLoader(false);
+    });
   }, [user.email]);
 
   const handleDeleteMyVolunteer = (id) => {
@@ -70,15 +71,24 @@ const PostedVolunteers = () => {
     <>
       {volunteers.length > 0 ? (
         <div className="max-w-7xl mx-auto my-5">
-          <p className="text-center text-2xl font-semibold mb-4">
-            Your Added Vlounteer: {volunteers.length}
+          <p className="text-center text-2xl font-semibold font-fs mb-4">
+            Your Added Volunteer
           </p>
           <div className="overflow-x-auto mt-5 hidden md:block">
-            <table className="table text-black">
+            <p className="w-0 h-0 border-[20px] border-transparent border-l-lime-500 border-r-0 -rotate-45 font-semibold lg:mt-3 lg:-mr-3 font-fs lg:mb-4 absolute z-10  lg:top-52 lg:right-20   ">
+              <span className="absolute -top-3 text-rose-700 font-bold right-2 rotate-45">
+                {volunteers.length}
+              </span>
+            </p>
+            <table className="table ">
               {/* head */}
-              <thead className="border-t text-black bg-sky-200 text-center text-base font-semibold">
+              <thead className="border-t text-black font-fs bg-green-100 text-center text-base font-semibold relative">
                 <tr>
-                  <th></th>
+                  <th>
+                    <label>
+                      <input type="checkbox" className="checkbox" />
+                    </label>
+                  </th>
                   <th>Post Title</th>
                   <th>category</th>
                   <th>deadline</th>
@@ -86,15 +96,18 @@ const PostedVolunteers = () => {
                   <th>Actions</th>
                 </tr>
               </thead>
+
               <tbody>
                 {volunteers.map((volunteer) => (
-                  <tr key={volunteer._id} className="text-center">
+                  <tr key={volunteer._id} className="text-center font-fs dark:text-gray-200 ">
                     <th>
                       <label>
                         <input type="checkbox" className="checkbox" />
                       </label>
                     </th>
-                    <td>{volunteer.postTitle}</td>
+                    <td className="">
+                      <p className="dark:text-gray-200">{volunteer.postTitle}</p>
+                    </td>
                     <td>{volunteer.category}</td>
                     <td>{volunteer.deadline}</td>
                     <td>{volunteer.location}</td>
@@ -120,12 +133,20 @@ const PostedVolunteers = () => {
             </table>
           </div>
           {/* small view */}
-          <table className="table bg-purple-50 md:hidden">
+          <p className="md:hidden w-0 h-0 border-[22px] border-transparent border-l-lime-500 border-r-0 -rotate-45 font-semibold lg:mt-1 lg:mr-1 font-fs lg:mb-4 absolute z-10  lg:top-56 lg:right-16 top-52 right-0 mt-2">
+            <span className="absolute -top-3 text-rose-700 font-bold right-2 rotate-45">
+              {volunteers.length}
+            </span>
+          </p>
+          <table className="table bg-purple-50 md:hidden ">
             {/* head */}
-            <thead className="border-t text-black bg-sky-200 text-center text-base font-semibold">
+            <thead className="border-t text-black bg-green-100 text-center text-base font-semibold">
               <tr>
-                <th></th>
-
+                <th>
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
+                </th>
                 <th>category</th>
                 <th>deadline</th>
                 <th>Actions</th>

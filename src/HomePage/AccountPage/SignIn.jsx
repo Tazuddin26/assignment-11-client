@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import AuthContext from "../../Context/AuthContext";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 const SignIn = () => {
   const { createSignInUser, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
@@ -55,53 +56,48 @@ const SignIn = () => {
           alt="NewDay"
           className="w-40 border ml-24 p-2 m-2 rounded-xl bg-lime-400"
         />
-        <p className="text-center text-xl">Log in Your Account</p>
-        <div className="lg:mt-2 space-y-6 ">
+        <p className="text-center text-2xl font-fs">Log in Your Account</p>
+        <div className="lg:mt-2 space-y-6 font-fs text-xl">
           <div>
-            <label htmlFor="email" className="text-sm">
-              Email
-            </label>
             <input
               type="email"
               name="email"
               placeholder="Email"
-              className="w-full p-3 rounded dark:bg-gray-100"
+              className="w-full p-2 rounded-sm dark:bg-gray-100"
               required
             />
           </div>
           <div>
-            <label htmlFor="message" className="text-sm ">
-              Password
-            </label>
             <input
               type="password"
               name="password"
               placeholder="Password"
-              className="w-full p-3 rounded dark:bg-gray-100"
+              className="w-full p-2 rounded-sm dark:bg-gray-100"
               required
             />
           </div>
           <div className=" ">
             <button
               type="submit"
-              className="btn btn-outline w-full  p-3 text-sm font-bold tracking-wide uppercase rounded"
+              className="w-full py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80"
             >
               Log In
             </button>
             <p className="text-center p-2">
               Don't have an account yet?{" "}
-              <Link to="/register" className="text-sky-500 hover:underline">
+              <Link to="/register" className="text-green-500 hover:underline">
                 Register
               </Link>
             </p>
             <div className="divider divider-success mt-4">OR</div>
-            {/* <div className="divider mt-4">OR</div> */}
+
             <button
               onClick={handleGoogleLogin}
               type="submit"
-              className="btn btn-outline w-full p-3 text-sm font-bold tracking-wide uppercase rounded"
+              className="w-full flex justify-center items-center gap-2 py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80"
             >
-              A little time to logIn With Google
+              <FcGoogle size={28} />
+              <span>logIn With Google</span>
             </button>
           </div>
         </div>

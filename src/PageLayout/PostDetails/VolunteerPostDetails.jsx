@@ -21,37 +21,39 @@ const VolunteerPostDetails = () => {
         </div>
 
         <div className=" lg:w-6/12 text-start flex flex-col justify-center p-6  rounded-sm lg:max-w-md xl:max-w-lg lg:text-left ">
-          <h1 className="mb-4 lg:text-4xl text-3xl font-bold leading-none ">
+          <h1 className="mb-4 lg:text-4xl text-3xl font-bold leading-none font-fs">
             {postTitle}
           </h1>
           <div className="flex justify-between items-center sm:mb-4">
             <p className=" text-2xl font-semibold ">
-              Category:{" "}
-              <span className="text-lime-600 font-semibold">{category}</span>
+              {/* Category:{" "} */}
+              <span className="text-lime-600 font-semibold font-fs">
+                {category}
+              </span>
             </p>
           </div>
-          <p className="text-xl text-gray-500 mb-6">{description}</p>
-          <p className="text-xl font-bold ">
-            Volunteer:{" "}
-            <span className="border-2 btn btn-info btn-outline rounded-full border-purple-500 ">
+          <p className="text-xl text-gray-500 mb-2 font-fs">{description}</p>
+          <p className="text-xl font-bold font-fs">
+            Number of Volunteer{" "}
+            <span className="px-4 py-3 rounded-full border-zinc-500 bg-lime-600 font-fs text-xl text-white">
               {noOfVolunteersNeeded}
             </span>
           </p>
-          <div className="text-start lg:flex lg:space-x-3">
-            <p className="text-xl">Deadline: {deadline}</p>
-            <p className="text-xl">Location: {location}</p>
+          <div className="text-start lg:flex lg:space-x-3 font-fs text-xl my-3">
+            <p className="text-xl"> {deadline}</p>
+            <p className="text-xl">{location}</p>
           </div>
-          <p className="text-[22px] mt-4 text-start">
-            Information Of Organization:{" "}
+          <p className="text-[22px] mt-4 text-start font-fs">
+            Information Of Organization{" "}
           </p>
-          <hr className="mb-3" />
-          <div className="lg:flex justify-between items-center lg:space-x-3 text-xl">
-            <p>Name: {organizerName}</p>
-            <p>Email: {organizerEmail}</p>
+          <hr className="mb-3 border-green-500" />
+          <div className="lg:flex justify-between items-center lg:space-x-3 text-xl font-fs">
+            <p> {organizerName}</p>
+            <p> {organizerEmail}</p>
           </div>
           <div className="flex lg:justify-end justify-center mt-6">
             <Link to={`/beVolunteer/${_id}`}>
-              <button className="px-8 py-3  btn btn-info btn-outline duration-300 hover:scale-105 transition uppercase">
+              <button className="px-6 py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
                 Be a Volunteer
               </button>
             </Link>

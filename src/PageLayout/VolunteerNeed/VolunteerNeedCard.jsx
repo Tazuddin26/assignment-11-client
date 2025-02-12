@@ -12,28 +12,28 @@ const VolunteerNeedCard = ({ volunteer }) => {
       <img
         src={thumbnail}
         alt=""
-        className="object-cover object-center w-full rounded-t-md h-48 dark:bg-gray-500"
+        className="object-cover object-center w-full rounded-t-md h-40 dark:bg-gray-500"
       />
-      <div className="flex flex-col justify-between p-6 space-y-3">
-        <div className="space-y-2">
-          <h2 className="text-2xl font-semibold tracking-wide">{postTitle}</h2>
-          <p className="text-xl font-bold tracking-wide text-lime-600">
+      <div className="flex flex-col justify-between p-4 space-y-2">
+        <div className="space-y-1">
+          <h2 className="text-2xl font-semibold tracking-wide font-fs">{postTitle}</h2>
+          <p className="text-xl font-bold tracking-wide text-green-600 font-fs">
             {category}
           </p>
-          <p className="dark:text-gray-800 w-72 text-gray-500 ">
+          <p className="dark:text-gray-800 w-72 text-lg text-gray-500 font-fs">
             {description}
           </p>
         </div>
         <div className="flex justify-between items-center">
-        <Link to={`/postDetails/${_id}`}>
-        <button
-            type="button"
-            className="px-8 py-3 btn btn-info btn-outline duration-300 hover:scale-110 transition"
-          >
-            View Details
-          </button>
-        </Link>
-          <p className="text-gray-500">Deadline: {deadline}</p>
+          <Link to={`/postDetails/${_id}`}>
+            <button
+              type="button"
+              className="px-4 py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80"
+            >
+              View Details
+            </button>
+          </Link>
+          <p className="text-gray-500 font-fs">{deadline}</p>
         </div>
       </div>
     </div>

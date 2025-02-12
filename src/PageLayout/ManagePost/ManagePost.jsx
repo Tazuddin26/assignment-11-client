@@ -70,13 +70,18 @@ const ManagePost = () => {
     <>
       {volunteers.length > 0 ? (
         <div className="container p-2 mx-auto sm:p-4 ">
-          <h2 className="mb-4 text-3xl text-center font-semibold leading-tight">
-            Number Of Requests : <span className="">{volunteers.length}</span>
+          <h2 className="mb-4 text-3xl text-center font-semibold leading-tight font-fs">
+            Number Of Requests
           </h2>
-          <div className="overflow-x-auto bg-green-50 shadow-xl rounded-xl">
-            <table className="min-w-full text-sm text-black ">
+          <div className="overflow-x-auto bg-green-50 shadow-xl rounded-sm">
+            <p className="w-0 h-0 border-[20px] border-transparent border-l-lime-500 border-r-0 -rotate-45 font-semibold lg:mt-0 lg:mr-1 font-fs lg:mb-4 absolute z-10  lg:top-56 lg:right-20 top-52 right-1 mt-0  ">
+              <span className="absolute -top-3 text-rose-700 font-bold right-2 rotate-45">
+                {volunteers.length}
+              </span>
+            </p>
+            <table className="min-w-full lg:text-base text-sm text-black font-fs ">
               <thead className=" ml-10">
-                <tr className="text-center border-t  border-b bg-sky-200">
+                <tr className="text-center border-t  border-b bg-green-100">
                   <th className="p-3">S/N</th>
                   <th className="p-3">Post Title</th>
                   <th className="p-3">Email</th>
@@ -112,7 +117,7 @@ const ManagePost = () => {
                       <span className="px-3 py-1 font-semibold ">
                         <button
                           onClick={() => handleCancelRequest(volunteer._id)}
-                          className="border-2 hover:border-sky-500  bg-rose-500 text-center rounded-full duration-300 hover:scale-110 t"
+                          className="border-2 hover:border-green-500  bg-rose-500 text-center rounded-full duration-300 hover:scale-110 t"
                         >
                           <RxCrossCircled size={20} />
                         </button>

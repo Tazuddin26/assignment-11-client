@@ -6,7 +6,7 @@ import "react-tabs/style/react-tabs.css";
 import PostedVolunteers from "./PostedVolunteers";
 const ManageMyPost = () => {
   return (
-    <div className="mt-4">
+    <div className="mt-28">
       <Tabs >
         <div className="lg:mx-8 flex justify-center items-center">
           <TabList>

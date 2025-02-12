@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        fs: "'Roboto', 'serif'",
+        fs: "abel, serif",
       },
       boxShadow: {
         "custom-light": `8px 8px 25px

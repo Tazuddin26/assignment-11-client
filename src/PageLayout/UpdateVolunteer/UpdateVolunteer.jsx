@@ -66,16 +66,16 @@ const UpdateVolunteer = () => {
   };
 
   return (
-    <div className="container flex flex-col mx-auto space-y-12 border max-w-4xl mt-10 rounded-xl">
+    <div className="container flex flex-col mx-auto space-y-2 max-w-4xl mt-10 rounded-xl bg-green-50">
       <section className="">
-        <h2 className="text-3xl pt-6 text-center font-body font-semibold text-gray-900 capitalize dark:text-white">
+        <h2 className="text-3xl pt-4 text-center font-body font-semibold  font-fs capitalize dark:text-white">
           Updated Volunteer Information
         </h2>
 
-        <form onSubmit={handleUpdatePost} className="card-body ">
+        <form onSubmit={handleUpdatePost} className="card-body font-fs">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 p-12">
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
+              <label className="font-semibold dark:text-gray-200">
                 Post Title
               </label>
               <input
@@ -89,7 +89,10 @@ const UpdateVolunteer = () => {
             </div>
 
             <div className="flex flex-col gap-2 ">
-              <label className="text-gray-800 font-semibold" htmlFor="category">
+              <label
+                className="dark:text-gray-200 font-semibold"
+                htmlFor="category"
+              >
                 Category
               </label>
               <select
@@ -107,7 +110,7 @@ const UpdateVolunteer = () => {
             </div>
 
             <div className="flex flex-col gap-2 ">
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
+              <label className=" font-semibold dark:text-gray-200">
                 Location
               </label>
               <select
@@ -131,7 +134,7 @@ const UpdateVolunteer = () => {
             </div>
 
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
+              <label className="font-semibold dark:text-gray-200">
                 Thumbnail
               </label>
               <input
@@ -144,8 +147,8 @@ const UpdateVolunteer = () => {
               />
             </div>
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
-                No. of Volunteer Needed
+              <label className=" font-semibold dark:text-gray-200">
+                Volunteer Needed
               </label>
               <input
                 id="noOfVolunteer"
@@ -157,7 +160,7 @@ const UpdateVolunteer = () => {
               />
             </div>
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
+              <label className="font-semibold dark:text-gray-200">
                 Organizer name
               </label>
               <input
@@ -171,7 +174,7 @@ const UpdateVolunteer = () => {
               />
             </div>
             <div>
-              <label className="text-gray-800 font-semibold dark:text-gray-200">
+              <label className=" font-semibold dark:text-gray-200">
                 Organizer email
               </label>
               <input
@@ -185,7 +188,9 @@ const UpdateVolunteer = () => {
               />
             </div>
             <div className="flex flex-col gap-2 md:col-span-1">
-              <label className="text-gray-800 font-semibold">Deadline</label>
+              <label className=" dark:text-gray-200 font-semibold">
+                Deadline
+              </label>
 
               {/* Date Picker Input Field */}
               <DatePicker
@@ -196,7 +201,7 @@ const UpdateVolunteer = () => {
             </div>
             <div className="flex flex-col gap-2 md:col-span-2">
               <label
-                className="text-gray-800 font-semibold"
+                className="dark:text-gray-200 font-semibold"
                 htmlFor="description"
               >
                 Description
@@ -211,11 +216,10 @@ const UpdateVolunteer = () => {
               ></textarea>
             </div>
           </div>
-
-          <div className=" mt-6 md:px-12 md:pb-12">
+          <div className=" mt-2 md:px-12 md:pb-12">
             <button
               type="submit"
-              className="btn btn-info btn-outline duration-300 hover:scale-105 transition w-full"
+              className="py-2 font-fs w-full tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80"
             >
               Update Volunteer
             </button>

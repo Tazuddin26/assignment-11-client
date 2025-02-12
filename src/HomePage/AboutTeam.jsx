@@ -8,12 +8,12 @@ const AboutTeam = () => {
             <span className="text-lime-500"> changes you</span> want to see
           </h1>
 
-          <div className="flex flex-col divide-y dark:divide-gray-300 mt-16 space-y-6  text-start">
+          <div className="flex flex-col divide-y font-fs dark:divide-gray-300 mt-16 space-y-6  text-start">
             <details>
               <summary className="py-2 text-xl font-semibold  outline-none cursor-pointer focus:underline">
                 Greate Community
               </summary>
-              <div className="px-6 pb-4">
+              <div className="px-6 pb-4 text-xl">
                 <p>
                   We engage more people to our projects and activity to spread a
                   word about our organization. We stand for expanding our
@@ -25,7 +25,7 @@ const AboutTeam = () => {
               <summary className="py-2 text-xl font-semibold  outline-none cursor-pointer focus:underline">
                 Lost Of Projects
               </summary>
-              <div className="px-6 pb-4 ">
+              <div className="px-6 pb-4 text-xl">
                 <p>
                   We constantly work on promoting our projects and to engaging
                   more people to them. We believe that our strength is in our
@@ -37,7 +37,7 @@ const AboutTeam = () => {
               <summary className="py-2 text-xl font-semibold outline-none cursor-pointer focus:underline">
                 Nature of Technology
               </summary>
-              <div className="px-6 pb-4 space-y-2">
+              <div className="px-6 pb-4 space-y-2 text-xl">
                 <p>
                   Nowadays technogenic world harms a lot to our planet. We work
                   on minimization of its influence and hope we can save our
