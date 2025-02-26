@@ -43,3 +43,34 @@ Features :
   <img width="12"/>
   <img src="https://i.ibb.co.com/Z61Dt4ff/volunteer4.png" width="400" height="200"/>
 </div>
+
+<h3>Install Dependencies: </h3>
+  Install the required dependencies for both the client and server:
+
+    # Install client dependencies
+    cd client
+    npm install
+
+    # Install server dependencies
+    cd ../server
+    npm install
+
+<h3>Technologies Used: </h3>
+ 
+    Frontend: react-router-Dom 6.28v Axios,firebase,react-icons,react-spinners,sweetalert2.merekiUI, mambaUi,
+    Backend: Express, MongoDB,Cors,dotenv
+   
+
+<h3> Installation steps:</h3>
+
+1.  Clone using the following repo link
+
+        Client Side: https://github.com/Tazuddin26/assignment-11-client.git
+     
+2. Go to the project folder and run npm install
+        
+            cd my-first-project
+            npm install
+3.  Now run your app
+
+            npm run dev
