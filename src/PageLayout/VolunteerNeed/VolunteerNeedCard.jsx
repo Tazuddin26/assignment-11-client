@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const VolunteerNeedCard = ({ volunteer }) => {
   const { _id, thumbnail, postTitle, description, category, deadline } =
     volunteer;
 
   return (
-    <div
-      className=" rounded-md hover:shadow-custom-light dark:bg-gray-50
-     dark:text-gray-800 hover:scale-105 -translate-y-3 duration-300 ease-in-out border "
+    <motion.div
+      whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.15)" }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="rounded-md dark:bg-gray-50 dark:text-gray-800 border overflow-hidden"
     >
       <img
         src={thumbnail}
@@ -16,7 +20,9 @@ const VolunteerNeedCard = ({ volunteer }) => {
       />
       <div className="flex flex-col justify-between p-4 space-y-2">
         <div className="space-y-1">
-          <h2 className="text-2xl font-semibold tracking-wide font-fs">{postTitle}</h2>
+          <h2 className="text-2xl font-semibold tracking-wide font-fs">
+            {postTitle}
+          </h2>
           <p className="text-xl font-bold tracking-wide text-green-600 font-fs">
             {category}
           </p>
@@ -36,7 +42,7 @@ const VolunteerNeedCard = ({ volunteer }) => {
           <p className="text-gray-500 font-fs">{deadline}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
