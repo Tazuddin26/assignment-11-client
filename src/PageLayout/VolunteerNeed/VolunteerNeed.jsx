@@ -76,7 +76,9 @@ const VolunteerNeed = () => {
         transition={{ duration: 0.5 }}
       >
         <Link to="/volunteers-need">
-          <button className="btn btn-outline btn-accent px-8">SEE ALL</button>
+          <button className="btn btn-outline btn-accent px-8 mt-4">
+            SEE ALL
+          </button>
         </Link>
       </motion.div>
     </motion.div>
