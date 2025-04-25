@@ -8,22 +8,15 @@ import { MdOutlineNightlightRound } from "react-icons/md";
 
 const Navbar = () => {
   const { user, createSignOutUser } = useContext(AuthContext);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  );
   useEffect(() => {
     localStorage.setItem("theme", theme);
-    const localTheme = localStorage.getItem("theme");
-    document.querySelector("html").setAttribute("data-theme", localTheme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   const handleToggle = (e) => {
-    if (e.target.checked) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+    setTheme(e.target.checked ? "dark" : "light");
   };
 
   const handleSignOut = () => {
@@ -32,29 +25,32 @@ const Navbar = () => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Your Registration is Successfully",
+          title: "Signed Out Successfully",
           showConfirmButton: false,
           timer: 1500,
         });
       })
-      .catch((error) => console.log("failed to sign Out", error.message));
+      .catch((error) => console.error("Sign out error:", error.message));
   };
 
   const menuLink = (
     <>
-      <li className="">
+      <li>
         <NavLink
           to="/"
-          className={({ isActive }) => `${isActive ? " text-lime-700" : ""}`}
+          className={({ isActive }) =>
+            isActive ? "text-lime-700 font-semibold" : ""
+          }
         >
           Home
         </NavLink>
       </li>
-
       <li>
         <NavLink
           to="/volunteers-need"
-          className={({ isActive }) => `${isActive ? "text-lime-700" : ""}`}
+          className={({ isActive }) =>
+            isActive ? "text-lime-700 font-semibold" : ""
+          }
         >
           Need Volunteer
         </NavLink>
@@ -62,13 +58,11 @@ const Navbar = () => {
       <li>
         <details>
           <summary>My Profile</summary>
-          <ul className="p-2 lg:w-56 w-40 rounded-sm bg-green-200 text-gray-800 font-fs">
+          <ul className="p-2 rounded-sm bg-green-100 text-gray-800 font-fs">
             <li>
               <NavLink
                 to="/addVolunteerPost"
-                className={({ isActive }) =>
-                  `${isActive ? "text-lime-700" : ""}`
-                }
+                className={({ isActive }) => (isActive ? "text-lime-700" : "")}
               >
                 Add Volunteer
               </NavLink>
@@ -76,11 +70,9 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/manageMyPost"
-                className={({ isActive }) =>
-                  `${isActive ? "text-lime-700" : ""}`
-                }
+                className={({ isActive }) => (isActive ? "text-lime-700" : "")}
               >
-                Manage My Posts{" "}
+                Manage My Posts
               </NavLink>
             </li>
           </ul>
@@ -88,86 +80,89 @@ const Navbar = () => {
       </li>
     </>
   );
+
   return (
-    <div className="navbar bg-base-100  shadow-green-800 shadow-md p-4 fixed top-0 z-10">
-      <div className="navbar-start relative  ">
-        <div className="dropdown ">
-          <div tabIndex={0} role="button" className=" lg:hidden ">
+    <div className="navbar bg-base-100 shadow-md fixed top-0 w-full z-50 px-4 py-3 transition-all duration-300">
+      {/* Navbar Start */}
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="lg:hidden cursor-pointer">
             <CiMenuBurger size={24} />
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-md font-fs text-xl dropdown-content text-gray-800 bg-green-100 rounded-md z-[10] mt-3 w-56 p-2 shadow-md "
+            className="menu menu-sm dropdown-content mt-3 z-[10] p-3 shadow-lg bg-base-100 rounded-box w-56 font-fs text-lg"
           >
             {menuLink}
           </ul>
         </div>
-        <Link>
+        <Link to="/">
           <img
-            to="/"
             src="https://i.ibb.co.com/rvQQPst/logo.png"
-            alt="NewDay"
-            className="lg:w-36 w-28 border p-2 m-2 rounded-xl bg-lime-400"
+            alt="Logo"
+            className="w-28 lg:w-36 ml-2 hover:scale-105 transition-transform duration-300 "
           />
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex z-10">
-        <ul className="menu menu-horizontal py-0 text-xl gap-10 font-fs dark:text-gray-800 ">
+
+      {/* Navbar Center */}
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal gap-8 px-1 text-lg font-fs">
           {menuLink}
         </ul>
       </div>
 
-      <div className="navbar-end ">
-        <label className="swap swap-rotate lg:mr-4 mr-4">
+      {/* Navbar End */}
+      <div className="navbar-end gap-3">
+        {/* Theme Toggle */}
+        <label className="swap swap-rotate">
           <input
-            className="hidden"
             type="checkbox"
             onChange={handleToggle}
-            checked={theme === "light" ? false : true}
+            checked={theme === "dark"}
+            className="hidden"
           />
-          <CiLight
-            size={20}
-            className="swap-on h-6 w-6 fill-current border bg-slate-50 rounded-full border-white"
-          />
+          <CiLight size={22} className="swap-on transition duration-300" />
           <MdOutlineNightlightRound
-            size={20}
-            className="swap-off transition duration-300 ease-in-out -rotate-45 h-6 w-6 fill-current border bg-slate-200 rounded-full border-stone-950 "
+            size={22}
+            className="swap-off transition duration-300"
           />
         </label>
+
+        {/* User Info */}
         {user?.email ? (
           <>
-            <div className="items-center justify-center gap-2  p-1 navbar-center hidden lg:flex z-[10]">
-              <div className="ring-accent ring-offset-base-100 ring ring-offset-2 w-10 mr-2 rounded-full">
-                <a id="my-anchor-element-id">
-                  <img
-                    src={user?.photoURL}
-                    alt="image"
-                    className="rounded-full"
-                  />
-                </a>
+            <div className="hidden lg:flex items-center gap-2">
+              <div
+                className="w-10 h-10 ring ring-accent rounded-full overflow-hidden"
+                id="my-anchor-element-id"
+              >
+                <img
+                  src={user.photoURL}
+                  alt="user"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <Tooltip
-                className="bg"
                 anchorSelect="#my-anchor-element-id"
                 content={user.displayName}
               />
             </div>
-
-            <Link
-              to="/signIn"
-              className="px-6 py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80"
-            >
-              <button onClick={handleSignOut}>Sign Out</button>
+            <Link to="/signIn">
+              <button
+                onClick={handleSignOut}
+                className="btn btn-sm bg-green-500 text-white hover:bg-green-400 font-fs"
+              >
+                Sign Out
+              </button>
             </Link>
           </>
         ) : (
-          <>
-            <div className="px-6 py-2 font-fs tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-sm hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
-              <Link to="/signIn">
-                <button className="">Sign In </button>
-              </Link>
-            </div>
-          </>
+          <Link to="/signIn">
+            <button className="btn btn-sm bg-green-500 text-white hover:bg-green-400 font-fs">
+              Sign In
+            </button>
+          </Link>
         )}
       </div>
     </div>

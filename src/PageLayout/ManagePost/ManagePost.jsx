@@ -73,15 +73,15 @@ const ManagePost = () => {
           <h2 className="mb-4 text-3xl text-center font-semibold leading-tight font-fs">
             Number Of Requests
           </h2>
-          <div className="overflow-x-auto bg-green-50 shadow-xl rounded-sm">
+          <div className="overflow-x-auto shadow-xl rounded-sm">
             <p className="w-0 h-0 border-[20px] border-transparent border-l-lime-500 border-r-0 -rotate-45 font-semibold lg:mt-2 lg:mr-1 font-fs lg:mb-4 absolute   lg:top-52 lg:right-20 top-52 right-1 mt-0  ">
               <span className="absolute -top-3 text-rose-700 font-bold right-2 rotate-45">
                 {volunteers.length}
               </span>
             </p>
-            <table className="min-w-full lg:text-base text-sm text-black font-fs ">
-              <thead className=" ml-10">
-                <tr className="text-center border-t  border-b bg-green-100">
+            <table className="min-w-full lg:text-base text-sm font-fs ">
+              <thead className=" ml-10 bg-green-100 text-black">
+                <tr className="text-center border-t border-b ">
                   <th className="p-3">S/N</th>
                   <th className="p-3">Post Title</th>
                   <th className="p-3">Email</th>
@@ -94,9 +94,9 @@ const ManagePost = () => {
                 {volunteers.map((volunteer, index) => (
                   <tr
                     key={index}
-                    className="border-b text-center border-opacity-20 "
+                    className="border-b text-center border-opacity-20  "
                   >
-                    <td className="p-3">
+                    <td className="p-3  ">
                       <p>{index + 1}</p>
                     </td>
                     <td className="p-3">
