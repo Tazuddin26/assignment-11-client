@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="px-4 divide-y dark:bg-gray-700 dark:text-gray-800 dark:bg-zinc-800">
-      <div className="container text-white lg:flex justify-around py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+      <div className="container lg:flex justify-around py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="">
           <img
             src="https://i.ibb.co.com/rvQQPst/logo.png"
             alt="NewDay"
             className="lg:w-36 w-28  p-2 m-2 rounded-xl bg-lime-400"
           />
-          <p className="w-10/12 lg:mt-6 font-fs text-xl">
+          <p className="w-10/12 lg:mt-6 font-fs text-xl ">
             Our fund works to save the nature and our planet for future
             generations, and to decrease nowadays harmful human activity!
           </p>
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-6 text-sm text-center text-white dark:text-gray-600">
+      <div className="py-6 text-sm text-center dark:text-gray-600">
         © 2024 Company Co. All rights reserved.
       </div>
     </footer>
